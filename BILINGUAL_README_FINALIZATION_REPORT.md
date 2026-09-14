@@ -3,7 +3,8 @@
 Date: 2026-09-14
 Repository: `miku01031/scientific-figure-system`
 Visibility: PRIVATE
-Documentation commit: `97d2840d0288cc80a645f21d1d4d8c4b2d99acb4`\nReport commit: `c5cd8523999eeb5f6e2199e6d7922caa4becae98`
+Documentation commit: `97d2840d0288cc80a645f21d1d4d8c4b2d99acb4`
+Report commit: `c5cd8523999eeb5f6e2199e6d7922caa4becae98`
 
 ## Changed files
 
@@ -46,11 +47,13 @@ The project license remains author-decision-required; no SPDX license was invent
 
 ## Hosted CI
 
-Documentation commit hosted run: https://github.com/miku01031/scientific-figure-system/actions/runs/34827991268\nFinal report commit hosted run: https://github.com/miku01031/scientific-figure-system/actions/runs/34828161491
+Documentation commit hosted run: https://github.com/miku01031/scientific-figure-system/actions/runs/34827991268
+Final report commit hosted run: https://github.com/miku01031/scientific-figure-system/actions/runs/34828161491
 
 Windows, Ubuntu, and macOS core jobs for Python 3.10/3.11 passed. Optimized tests, schema/examples, capability-aware core, Ubuntu publication integration, and Ubuntu PDF-QA integration passed. draw.io Desktop E2E remained intentionally skipped because it is an optional application capability. GitHub's Node.js 20 deprecation annotations were non-blocking.
 
 ## License and repository state
 
 The repository remains private. No release, tag, public page, or GitHub visibility change was created.
+
 
