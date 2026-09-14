@@ -26,7 +26,7 @@ This change updates the bilingual README and adds detailed Codex usage guides. R
 
 The public registry was checked before writing the text. It contains only the bundled our_moderate_vivid categorical table; the semantic color roles documented here are fault_event, threshold, reference, neutral, missing, baseline, and text. The documented production renderer names match the current supported-archetype contract.
 
-## Validation
+## Local validation
 
 - README and guide relative-link scan: PASS.
 - Required-file and asset existence scan: PASS.
@@ -41,6 +41,27 @@ The public registry was checked before writing the text. It contains only the bu
 
 The default pytest temporary directory on this workstation is permission-restricted, so validation used an explicitly writable basetemp. The single cache warning is environmental and does not affect the six passing tests.
 
+## Hosted CI
+
+Documentation commit: 0359b3229ea714c1bbf6e46ec0c261c7c0f88cc2
+
+Workflow: https://github.com/miku01031/scientific-figure-system/actions/runs/34844983678
+
+Result: success.
+
+Passed jobs included:
+
+- Windows core, Python 3.10 and 3.11;
+- Ubuntu core, Python 3.10 and 3.11;
+- macOS core, Python 3.10 and 3.11;
+- optimized-core;
+- schema-and-examples;
+- capability-aware-core;
+- Ubuntu publication integration;
+- Ubuntu PDF-QA integration.
+
+The draw.io Desktop E2E job remained optional and skipped, as documented by the repository capability model.
+
 ## Files
 
 Changed:
@@ -54,10 +75,10 @@ Added:
 - docs/CODEX_USAGE_zh.md
 - this report
 
-## Hosted CI and repository state
+## Repository state
 
-Hosted CI and the private repository state will be recorded after the documentation commit and required workflow completes.
+The repository remains private. No renderer, QA, schema, palette, grammar, requirements, CI, license, citation, or scientific files were changed.
 
 ## Status
 
-Pending commit and hosted-CI confirmation.
+STRANGER_FIRST_USAGE_GUIDE = PASS
