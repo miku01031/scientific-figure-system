@@ -8,8 +8,8 @@
         "width": 2000,
         "height": 620
       },
-      "file_size_bytes": 86173,
-      "sha256": "d71f2db75f7b5f73eda95377beeaf0c4e3257b0967f90d599e7595f234c2056b",
+      "file_size_bytes": 86605,
+      "sha256": "29c838a4ccc75889228c2891df7e3606c4e249ab07edb2fab41ce834b43b3526",
       "source_specs": [
         "examples/synthetic/readme_previews/figure_dense/spec.json",
         "examples/synthetic/readme_previews/figure_discrete/spec.json",
@@ -28,8 +28,8 @@
         "width": 1800,
         "height": 700
       },
-      "file_size_bytes": 100719,
-      "sha256": "541d723692522f647be665a64ad70197299ca54c5b33f895788e0c3b9334d8d9",
+      "file_size_bytes": 101222,
+      "sha256": "42061d76918255dfecaa3ed77d23f4d5914c19457c304ab185339866d632d772",
       "source_specs": [
         "examples/synthetic/readme_previews/figure_dense/spec.json",
         "examples/synthetic/readme_previews/figure_discrete/spec.json",
