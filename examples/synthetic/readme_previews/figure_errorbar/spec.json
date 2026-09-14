@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "figure_id": "readme-preview-errorbar",
+  "caption_information": "Synthetic demonstration only; not scientific evidence.",
+  "sources": [
+    {
+      "path": "data.csv",
+      "sha256": "cdfbf428a91ad3ee12c42448b031561d27c04154a6b0f25aca32f73262057792"
+    }
+  ],
+  "panels": [
+    {
+      "panel_id": "main",
+      "title": "Synthetic point / whisker intervals",
+      "domain": "categorical",
+      "x_axis": {
+        "label": "Condition",
+        "unit": "index",
+        "range": [
+          -0.5,
+          4.5
+        ],
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tick_labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "y_axis": {
+        "label": "Estimate",
+        "unit": "a.u.",
+        "range": [
+          0.35,
+          1.0
+        ]
+      },
+      "series": [
+        {
+          "series_id": "estimate",
+          "meaning": "synthetic estimate",
+          "identity": "synthetic estimate",
+          "statistic": "estimate",
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            0.58,
+            0.74,
+            0.66,
+            0.82,
+            0.71
+          ],
+          "connect": false,
+          "lower": [
+            0.5,
+            0.66,
+            0.57,
+            0.75,
+            0.63
+          ],
+          "upper": [
+            0.67,
+            0.81,
+            0.73,
+            0.89,
+            0.78
+          ],
+          "interval_axis": "y",
+          "interval_definition": "synthetic interval bounds"
+        }
+      ]
+    }
+  ]
+}

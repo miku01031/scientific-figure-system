@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "figure_id": "readme-preview-discrete",
+  "caption_information": "Synthetic demonstration only; not scientific evidence.",
+  "sources": [
+    {
+      "path": "data.csv",
+      "sha256": "3fb1fb1de6730e2fda4310bc432f7262fb2faf2d03de7b4ead3c8611eaecf219"
+    }
+  ],
+  "panels": [
+    {
+      "panel_id": "main",
+      "title": "Synthetic discrete comparison",
+      "domain": "discrete",
+      "x_axis": {
+        "label": "Condition",
+        "unit": "index",
+        "range": [
+          -0.5,
+          4.5
+        ],
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tick_labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "y_axis": {
+        "label": "Synthetic response",
+        "unit": "a.u.",
+        "range": [
+          0,
+          1.05
+        ]
+      },
+      "series": [
+        {
+          "series_id": "A",
+          "meaning": "synthetic method A",
+          "identity": "synthetic method A",
+          "statistic": "observed",
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            0.35,
+            0.48,
+            0.62,
+            0.76,
+            0.88
+          ],
+          "connect": false
+        },
+        {
+          "series_id": "B",
+          "meaning": "synthetic method B",
+          "identity": "synthetic method B",
+          "statistic": "observed",
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            0.28,
+            0.42,
+            0.58,
+            0.71,
+            0.83
+          ],
+          "connect": false
+        },
+        {
+          "series_id": "C",
+          "meaning": "synthetic method C",
+          "identity": "synthetic method C",
+          "statistic": "observed",
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            0.41,
+            0.55,
+            0.64,
+            0.79,
+            0.92
+          ],
+          "connect": false
+        }
+      ]
+    }
+  ]
+}

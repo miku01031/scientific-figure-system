@@ -1,0 +1,60 @@
+{
+  "generated_by": "examples/synthetic/readme_previews/run_previews.py",
+  "drawio_application_test_version": "31.4.5",
+  "assets": [
+    {
+      "asset": "docs/readme_assets/hero_preview.png",
+      "dimensions": {
+        "width": 2000,
+        "height": 620
+      },
+      "file_size_bytes": 86173,
+      "sha256": "d71f2db75f7b5f73eda95377beeaf0c4e3257b0967f90d599e7595f234c2056b",
+      "source_specs": [
+        "examples/synthetic/readme_previews/figure_dense/spec.json",
+        "examples/synthetic/readme_previews/figure_discrete/spec.json",
+        "examples/synthetic/readme_previews/figure_errorbar/spec.json",
+        "skills/scientific-schematic/examples/T1.json",
+        "skills/scientific-schematic/examples/T3.json",
+        "skills/scientific-schematic/examples/T5.json"
+      ],
+      "synthetic": true,
+      "third_party_assets": false,
+      "manual_scientific_edit": false
+    },
+    {
+      "asset": "docs/readme_assets/figure_gallery.png",
+      "dimensions": {
+        "width": 1800,
+        "height": 700
+      },
+      "file_size_bytes": 100719,
+      "sha256": "541d723692522f647be665a64ad70197299ca54c5b33f895788e0c3b9334d8d9",
+      "source_specs": [
+        "examples/synthetic/readme_previews/figure_dense/spec.json",
+        "examples/synthetic/readme_previews/figure_discrete/spec.json",
+        "examples/synthetic/readme_previews/figure_errorbar/spec.json"
+      ],
+      "synthetic": true,
+      "third_party_assets": false,
+      "manual_scientific_edit": false
+    },
+    {
+      "asset": "docs/readme_assets/schematic_gallery.png",
+      "dimensions": {
+        "width": 1800,
+        "height": 700
+      },
+      "file_size_bytes": 99118,
+      "sha256": "57511a5630e2bb75c803088fa6d3987abd387faaadfd1ec6e1387a67a6f75898",
+      "source_specs": [
+        "skills/scientific-schematic/examples/T1.json",
+        "skills/scientific-schematic/examples/T3.json",
+        "skills/scientific-schematic/examples/T5.json"
+      ],
+      "synthetic": true,
+      "third_party_assets": false,
+      "manual_scientific_edit": false
+    }
+  ]
+}

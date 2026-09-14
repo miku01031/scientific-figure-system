@@ -6,6 +6,10 @@
 
 这个私有 release candidate 面向第一次接触项目的硕士生、博士生和科研人员。你会用 Python 和 Matplotlib，但希望工具能更认真地检查科研含义、来源追溯和矢量输出。
 
+![Scientific Figure System 预览](docs/readme_assets/hero_preview.png)
+
+以下示例均由仓库内的合成数据或合成规格生成。预览图仅用于直观展示，不代表超出下文所说明的已测试能力范围。
+
 ## 它解决什么问题
 
 项目包含两个相互独立的产品：
@@ -75,6 +79,9 @@ PyMuPDF 只用于 PDF 检查，不是核心依赖。第三方许可证信息见 
 
 公共候选只内置项目自己的 `our_moderate_vivid`。其他 palette 可以由用户自行提供，但需要自己记录出处并检查是否适合；它们不会被默认为项目内置 palette。
 
+![科研数据图型示例](docs/readme_assets/figure_gallery.png)
+
+以上面板由当前 pipeline 根据仓库内的合成规格生成。
 ### 科研示意图
 
 登记的 grammar 是：
@@ -83,6 +90,9 @@ PyMuPDF 只用于 PDF 检查，不是核心依赖。第三方许可证信息见 
 
 Grammar 描述的是语义结构和图的组织方式。节点、关系和布局坐标由 semantic spec 提供；它不是对任意手绘图的 AI 自动排版。生成原生 XML 是核心能力。draw.io Desktop 的应用导出是可选能力，曾在 draw.io Desktop 31.4.5 上做过本地测试；GitHub hosted CI 不运行 Desktop E2E。
 
+![科研示意图 grammar 示例](docs/readme_assets/schematic_gallery.png)
+
+这三张代表性示意图来自已经测试过的合成规格。图片只用于展示，不扩大九类 grammar 的支持边界；draw.io Desktop 导出仍是可选能力。
 ## 哪些情况会主动停止
 
 当系统无法可靠保留科学含义时，它会 fail closed，也就是停止并报告问题。常见例子包括：
