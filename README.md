@@ -1,81 +1,134 @@
-# Scientific Figure System (public candidate)
+# Scientific Figure System
 
-Public repository version: **0.1.0-rc1**. The two internal product identities
-remain scientific-figure 1.1.x and scientific-schematic 0.1.x.
+[English](README.md) | [中文](README_zh.md)
 
-## What is this?
-A small, evidence-preserving toolkit for reproducible scientific figures and
-semantic schematics. It uses explicit inputs, vector-first output, provenance
-checks, and fail-closed validation.
+A small, evidence-preserving toolkit for creating publication-oriented scientific figures and editable technical schematics.
 
-## What is it not?
-It is not a paper-production service, a universal chart library, or a guarantee
-of journal acceptance. Synthetic examples are demonstrations only; authors must
-review scientific meaning and visual suitability.
+This private release candidate is for graduate students, researchers, and engineers who can use Python and Matplotlib but want stronger checks around scientific meaning, provenance, and vector output.
 
-## Why integrity matters
-Scientific arrays, intervals, labels, provenance, and topology are checked
-before artwork is accepted. Unsupported or ambiguous inputs stop with an
-explicit error. Machine QA does not establish journal likeness.
+## What it helps with
 
-## Supported products
-- **scientific-figure**: discrete comparison, dense time series, and errorbar
-  point-whisker figures.
-- **scientific-schematic**: nine registered semantic grammars and native
-  editable draw.io XML. Nodes, topology, and layout coordinates are supplied
-  by the semantic spec; this is not automatic intelligent layout. Application
-  export is optional and was tested with draw.io Desktop 31.4.5 only.
+The project has two separate products:
 
-## Quick start — figure
-From the repository root:
+- **scientific-figure** creates data figures from an explicit scientific specification. Its current production-tested archetypes are `DISCRETE_COMPARISON`, `DENSE_TIMESERIES`, and `ERRORBAR_POINTWHISKER`.
+- **scientific-schematic** creates semantic technical diagrams from an explicit specification. Its canonical editable output is native `.drawio` XML. It currently registers nine diagram grammars.
+
+The central idea is simple: **data first, meaning first, style second**. The system checks that plotting and vector polishing do not silently change protected scientific values such as x/y arrays, intervals, thresholds, or event positions. When it cannot safely interpret an input, it stops and explains the problem instead of guessing.
+
+## What it is not
+
+This is not a paper-production service, a universal chart library, an automatic layout system for every diagram, or a guarantee of journal acceptance. The examples use synthetic data and are demonstrations only. Machine QA does not replace a scientist's review of the data, caption, interpretation, or final-size appearance.
+
+## Quick start: first figure
+
+After cloning the repository, run these commands from its root:
 
 ```powershell
+git clone https://github.com/miku01031/scientific-figure-system.git
+cd scientific-figure-system
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements-core.txt
 .venv\Scripts\python examples/synthetic/figure_minimal/run_example.py
 ```
 
-The deterministic synthetic example writes an SVG under
-`examples/synthetic/figure_minimal/output/`. This core quick start does not
-install optional publication or PDF-QA packages.
+The deterministic example writes an SVG under `examples/synthetic/figure_minimal/output/`. Without the optional CairoSVG layer it is named `figure.DIAGNOSTIC.svg`; with publication export available it is named `figure.svg`. It uses synthetic demonstration data, not research evidence. Core SVG generation does not require CairoSVG, PyMuPDF, or draw.io Desktop.
 
-## Quick start — schematic
-Native editable XML needs no draw.io installation:
+## Quick start: first schematic
+
+The same core environment can generate an editable native diagram:
 
 ```powershell
 .venv\Scripts\python examples/synthetic/schematic_minimal/run_example.py
 ```
 
-This writes `examples/synthetic/schematic_minimal/output/diagram.drawio`.
-Set `DRAWIO_EXECUTABLE` only when application export is wanted. Without the
-application the native XML result remains valid and export is reported as
-unavailable.
+This writes `examples/synthetic/schematic_minimal/output/diagram.drawio`. No draw.io installation is required. If draw.io Desktop is available, it can be used later for application export; that is an optional capability, not a prerequisite for native `.drawio` generation.
 
-## Optional capabilities
+## Optional publication capabilities
 
-For PDF/PNG publication export, install `requirements-publication.txt` and a
-platform-native Cairo library. For PDF inspection or QA, install
-`requirements-pdfqa.txt`. `pip install CairoSVG` provides the Python wrapper;
-it does not guarantee that native Cairo is available. draw.io Desktop is an
-optional application capability and is never required for native `.drawio`
-generation.
+SVG output and native `.drawio` generation are the core capabilities. PDF/PNG publication export is a separate layer:
 
-## Install manually
-Copy the two directories under `skills/` into a local project or skill
-directory. Core SVG/native-XML use requires `requirements-core.txt`; tests use
-`requirements-dev.txt`; publication and PDF-QA are separate optional layers.
-No package or desktop application is installed automatically. For Cairo
-details see `docs/INSTALLATION.md` and `docs/RUNTIME_DISTRIBUTION_POLICY.md`.
+```powershell
+.venv\Scripts\python -m pip install -r requirements-publication.txt
+```
 
-## Unsupported behavior
-Unknown archetypes/grammars, insufficient encoding capacity, invalid intervals,
-missing provenance, missing glyphs, unavailable required fonts, and forbidden
-raster/vector conditions fail closed with a code and next action. Chart registry
-entries outside the three data archetypes are reference/advisor records, not
-production support claims. Optional PDF/PNG, CJK-font, and draw.io integration
-tests skip explicitly when their capability is absent.
+This layer also needs a platform-native Cairo library. Installing the Python package `CairoSVG` alone does not guarantee that native Cairo is available. See [installation notes](docs/INSTALLATION.md) and the [runtime distribution policy](docs/RUNTIME_DISTRIBUTION_POLICY.md).
 
-## Editing draw.io
-The `.drawio` file is the editable schematic source. Open it in diagrams.net or
-draw.io, edit native cells/connectors, then export publication artwork through
-the documented path.
+PDF inspection and PDF-QA are another optional layer:
+
+```powershell
+.venv\Scripts\python -m pip install -r requirements-pdfqa.txt
+```
+
+PyMuPDF is used only for PDF inspection; it is not a core dependency. Third-party license information is in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Current support boundaries
+
+### Data figures
+
+The public candidate production scope contains three tested archetypes:
+
+- `DISCRETE_COMPARISON`
+- `DENSE_TIMESERIES`
+- `ERRORBAR_POINTWHISKER`
+
+The 49-entry chart registry is reference and planning material. It is not a claim that all 49 chart types are production renderers.
+
+The public candidate bundles the project-owned `our_moderate_vivid` palette. Other palettes may be supplied by a user with their own provenance and suitability review; they are not silently treated as bundled defaults.
+
+### Scientific schematics
+
+The registered grammars are:
+
+`CONTROL_BLOCK_DIAGRAM`, `ALGORITHM_DECISION_LOOP`, `STAGED_METHOD_PIPELINE`, `BRANCH_MERGE_WORKFLOW`, `OFFLINE_ONLINE_SWIMLANE`, `HIERARCHICAL_ARCHITECTURE`, `DUAL_STREAM_FUSION`, `SEMANTIC_METHOD_OVERVIEW`, and `EXPERIMENTAL_DATA_LIFECYCLE`.
+
+A grammar describes semantic structure and diagram organization. The semantic specification supplies the nodes, relationships, and layout coordinates; this is not AI layout of an arbitrary drawing. Native XML generation is core. draw.io Desktop application export is optional and was locally tested with draw.io Desktop 31.4.5; hosted CI does not run Desktop E2E.
+
+## When the system stops
+
+The tools fail closed when they cannot safely preserve meaning. Typical examples include:
+
+- too many series for the available distinguishable encodings;
+- an invalid or inverted interval;
+- missing or mismatched source provenance;
+- an unknown archetype or grammar;
+- a missing required glyph or a forbidden raster/vector condition.
+
+A stop is a request to fix or review the input. It is preferable to a plausible-looking figure with an unverified scientific meaning.
+
+## Editing and review workflow
+
+1. Prepare the scientific data and semantic specification.
+2. Generate the figure or schematic.
+3. Read the machine QA and capability result.
+4. Inspect the artwork at its intended physical size and in context.
+5. Make any required human edits and document them.
+6. Use the reviewed result in the manuscript.
+
+The schematic `.drawio` file is the editable source. Data figures are primarily published as SVG and can be refined in Illustrator, Inkscape, or another vector editor. SVG editability and grouping can vary between applications; the project does not promise identical editing behavior in every editor.
+
+## Tested environments
+
+Hosted core CI has passed on Windows, Ubuntu, and macOS with Python 3.10 and 3.11. The current Matplotlib range is defined by [requirements-core.txt](requirements-core.txt) as `>=3.10,<3.11`; Python version and Matplotlib version are separate constraints. Ubuntu hosted integration also tests native Cairo publication export and the optional PyMuPDF PDF-QA layer.
+
+## Repository map
+
+- `skills/` — the two product implementations and their local tests;
+- `registries/` — reference registries and advisory records;
+- `schemas/` — JSON schemas for contracts;
+- `examples/synthetic/` — small deterministic demonstrations;
+- `tests/` — repository, quickstart, and hygiene checks;
+- `docs/` — installation, review, runtime, and dependency notes.
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md) before changing code or adding examples. See [SECURITY.md](SECURITY.md) for the current security-reporting status.
+
+## Author
+
+Li Yingxi ([@miku01031](https://github.com/miku01031))
+
+## Citation
+
+If you use the renderer or schematic backend, please cite this software using [CITATION.cff](CITATION.cff).
+
+## License status
+
+The repository keeps the license decision explicit and pending author confirmation. See [LICENSE_DECISION_REQUIRED.md](LICENSE_DECISION_REQUIRED.md).
