@@ -7,7 +7,7 @@ Status: PASS
 - Hero preview: created at docs/readme_assets/hero_preview.png.
 - Figure gallery: created at docs/readme_assets/figure_gallery.png.
 - Schematic gallery: created at docs/readme_assets/schematic_gallery.png.
-- Asset directory total: 286,010 bytes; each PNG is below 1 MB and the directory is below 3 MB.
+- Asset directory total: 286,945 bytes; each PNG is below 1 MB and the directory is below 3 MB.
 
 ## Scope shown
 
@@ -52,11 +52,11 @@ The galleries do not imply that the 49-entry chart registry is a production rend
 - Repository hygiene: PASS after clearing generated caches.
 - Local repository tests: PASS — 6 repository quickstart/hygiene/import/native-only tests; scientific-figure package 29 passed, 22 skipped; scientific-schematic package 38 passed, 4 skipped.
 - Visual inspection: PASS for all three assets; no clipped panel labels, malformed axes, clipped schematic edges, or obvious collisions observed.
-- Hosted CI: PASS — https://github.com/miku01031/scientific-figure-system/actions/runs/34834356343
+- Hosted CI: PASS — https://github.com/miku01031/scientific-figure-system/actions/runs/34834886325
 - Hosted jobs: Windows, Ubuntu, and macOS core matrices; optimized core; schema/examples; Ubuntu publication integration; Ubuntu PDF-QA integration. The draw.io Desktop E2E job remained optional/skipped as designed.
 
 ## Repository state
 
 - Repository visibility: PRIVATE.
-- Preview-assets commit tested by hosted CI: 44c3b8c799e2face10055c802e024f61d554cce7.
-- A report-only follow-up commit will record this closeout; no product or scientific code changes are included.
+- Preview-assets commit tested by hosted CI: 32af8cd8bfd4cc072a2056501fc43247fe44a18b.
+- No product or scientific code changes are included.
