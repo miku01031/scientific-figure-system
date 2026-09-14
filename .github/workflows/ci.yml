@@ -66,7 +66,7 @@ jobs:
       - name: Install native Cairo and publication dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcairo2
+          sudo apt-get install -y libcairo2 fonts-noto-cjk
           python -m pip install -r requirements-publication.txt pytest
       - name: Figure publication integration
         run: python -m pytest tests -q -m cairo_integration
@@ -88,7 +88,7 @@ jobs:
       - name: Install publication and PDF-QA dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcairo2
+          sudo apt-get install -y libcairo2 fonts-noto-cjk
           python -m pip install -r requirements-pdfqa.txt pytest
       - name: Figure PDF-QA tests
         run: python -m pytest tests -q

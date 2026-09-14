@@ -1,5 +1,7 @@
 numpy>=1.26
-matplotlib>=3.10,<3.12
+# Mixed CJK/math rendering is validated against the 3.10 public API.
+# Matplotlib 3.11 remains outside this candidate's tested compatibility bound.
+matplotlib>=3.10,<3.11
 jsonschema>=4.20
 Pillow>=10
 PyYAML>=6
