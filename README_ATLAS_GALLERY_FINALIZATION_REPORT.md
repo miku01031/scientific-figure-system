@@ -40,9 +40,9 @@ The previous `hero_preview.png`, `figure_gallery.png`, and `schematic_gallery.pn
 
 - Repository: `miku01031/scientific-figure-system`.
 - Visibility: PRIVATE (verified through the authenticated GitHub API).
-- Main commit: `834d0851f7d964fe82a021b503faa223f3544695`.
+- Main commit: `87de66cd8848c3d937c5b987ab0a087c1eadece0`.
 - Remote main resolves to the same commit and contains all eight new assets.
-- Hosted CI run: [candidate-ci run 34838641798](https://github.com/miku01031/scientific-figure-system/actions/runs/34838641798).
+- Hosted CI run: [candidate-ci run 34838955078](https://github.com/miku01031/scientific-figure-system/actions/runs/34838955078).
 - Required core, optimized, schema/examples, Windows, Ubuntu, macOS, Ubuntu publication, and Ubuntu PDF-QA jobs: PASS. Optional draw.io Desktop E2E: SKIPPED as designed.
 - GitHub authenticated API confirmed the README and asset paths exist on `main`.
 - A live browser surface was not available in this session (browser request-header policy error), so the final check is `STRUCTURAL_PASS / VISUAL_BROWSER_CHECK_NOT_OBSERVED`; the same committed assets were visually inspected locally at full resolution and README-like scale.
@@ -52,3 +52,4 @@ The previous `hero_preview.png`, `figure_gallery.png`, and `schematic_gallery.pn
 `README_ATLAS_GALLERY_FINALIZATION = PASS_WITH_LIMITATIONS`
 
 The limitation is only the unavailable live browser visual check. The repository remains private, hosted CI is green, and the gallery assets are synthetic, traceable, and capability-accurate.
+
