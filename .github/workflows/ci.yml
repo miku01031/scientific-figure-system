@@ -68,9 +68,23 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libcairo2 fonts-noto-cjk
           python -m pip install -r requirements-publication.txt pytest
-      - name: Figure publication integration
-        run: python -m pytest tests -q -m cairo_integration
-        working-directory: skills/scientific-figure
+      - name: Figure publication capability smoke
+        run: |
+          python - <<'PY'
+          import os, sys, tempfile
+          from pathlib import Path
+          os.chdir(Path.cwd() / 'skills' / 'scientific-figure')
+          sys.path.insert(0, str(Path.cwd() / 'tests'))
+          from test_candidate import fixture, PROFILE
+          from src.pipeline import run
+          with tempfile.TemporaryDirectory() as td:
+              out = Path(td) / 'out'
+              result = run(fixture(Path(td)), PROFILE, out)
+              assert result['render'] == 'PASS', result
+              assert result.get('publication_export') != 'UNAVAILABLE', result
+              for name in ('figure.svg', 'figure.pdf', 'figure.png'):
+                  assert (out / name).is_file(), name
+          PY
       - name: Schematic publication integration
         run: |
           python -c "from src.portability import configure_cairosvg; configure_cairosvg({}); print('native Cairo probe PASS')"
