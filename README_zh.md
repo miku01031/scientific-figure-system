@@ -6,10 +6,6 @@
 
 这个私有 release candidate 面向第一次接触项目的硕士生、博士生和科研人员。你会用 Python 和 Matplotlib，但希望工具能更认真地检查科研含义、来源追溯和矢量输出。
 
-![Scientific Figure System 预览](docs/readme_assets/hero_preview.png)
-
-以下示例均由仓库内的合成数据或合成规格生成。预览图仅用于直观展示，不代表超出下文所说明的已测试能力范围。
-
 ## 它解决什么问题
 
 项目包含两个相互独立的产品：
@@ -18,6 +14,52 @@
 - **scientific-schematic**：根据明确的语义规格生成技术示意图。可编辑源是原生 `.drawio` XML，目前登记了九类 diagram grammar。
 
 最重要的使用原则很简单：**先保证数据，再保证含义，最后处理样式**。系统会检查绘图和矢量处理有没有偷偷改变横纵坐标、区间、阈值或事件位置等受保护的科研值。如果系统无法可靠理解输入，它会停止并说明问题，而不是猜一个结果继续画图。
+
+下面的预览图全部由仓库自己的 synthetic benchmark 生成，只用于展示，不是科研证据。
+
+## 科研图表类型总览
+
+<a href="docs/readme_assets/chart_archetype_atlas.png"><img src="docs/readme_assets/chart_archetype_atlas.png" alt="科研图表类型参考图谱" width="100%"></a>
+
+这是开发过程中整理的科研图表类型参考图谱。点击图片可以打开高清总览。图谱属于选图和表达方式的参考资料，并不表示已经为探索到的49类图型都提供了 production renderer。当前真正经过生产测试的范围以下面的三类为准。
+
+为了在网页上更清楚地查看，同一份生成结果还按 family 拆成三张无损总览图：
+
+<a href="docs/readme_assets/chart_archetype_atlas_families_1.png"><img src="docs/readme_assets/chart_archetype_atlas_families_1.png" alt="图表图谱 A 到 C 类" width="100%"></a>
+
+<a href="docs/readme_assets/chart_archetype_atlas_families_2.png"><img src="docs/readme_assets/chart_archetype_atlas_families_2.png" alt="图表图谱 D 到 F 类" width="100%"></a>
+
+<a href="docs/readme_assets/chart_archetype_atlas_families_3.png"><img src="docs/readme_assets/chart_archetype_atlas_families_3.png" alt="图表图谱 G 到 I 类" width="100%"></a>
+
+## 当前正式支持的数据图型
+
+公共候选的 production 范围只有三类经过测试的图型：
+
+- `DISCRETE_COMPARISON`
+- `DENSE_TIMESERIES`
+- `ERRORBAR_POINTWHISKER`
+
+49 项 chart registry 是参考和规划材料，并不表示49类图都已经有可用于 production 的 renderer。
+
+公共候选只内置项目自己的 `our_moderate_vivid`。其他 palette 可以由用户自行提供，但需要自己记录出处并检查是否适合；它们不会被默认为项目内置 palette。
+
+## 科研示意图总览
+
+<a href="docs/readme_assets/schematic_quality_overview.png"><img src="docs/readme_assets/schematic_quality_overview.png" alt="合成科研示意图质量总览" width="100%"></a>
+
+这里展示的是我们自己的 synthetic schematic quality suite 中的控制、FDI、FTC、observer 和 method 图。它们没有从论文中截取。可编辑源是原生 `.drawio` XML；这张图片用于展示，不扩大九类 grammar 的支持边界。draw.io Desktop 的应用导出是可选能力；此前在 draw.io Desktop 31.4.5 上做过本地测试，GitHub hosted CI 不运行 Desktop E2E。
+
+## 流程图结构类型总览
+
+<a href="docs/readme_assets/flowchart_grammar_overview.png"><img src="docs/readme_assets/flowchart_grammar_overview.png" alt="合成流程图 grammar benchmark 总览" width="100%"></a>
+
+上图展示了项目自己的 semantic/layout grammar benchmark。为了更清楚地查看，同一张图还提供两张无损裁剪图：
+
+<a href="docs/readme_assets/flowchart_grammar_overview_1.png"><img src="docs/readme_assets/flowchart_grammar_overview_1.png" alt="流程图 grammar benchmark B1 到 B4" width="100%"></a>
+
+<a href="docs/readme_assets/flowchart_grammar_overview_2.png"><img src="docs/readme_assets/flowchart_grammar_overview_2.png" alt="流程图 grammar benchmark B5 到 B8" width="100%"></a>
+
+这些是 semantic/layout grammar，不是从参考论文复制的流程图。节点、关系和布局坐标由 semantic spec 提供；它不是对任意手绘图的 AI 自动最优排版。
 
 ## 它不是什么
 
@@ -65,34 +107,6 @@ PDF 检查和 PDF-QA 又是另一层可选能力：
 
 PyMuPDF 只用于 PDF 检查，不是核心依赖。第三方许可证信息见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
-## 当前支持边界
-
-### 数据图
-
-公共候选的生产范围只有三类经过测试的图型：
-
-- `DISCRETE_COMPARISON`
-- `DENSE_TIMESERIES`
-- `ERRORBAR_POINTWHISKER`
-
-49 项 chart registry 是参考和规划材料，并不表示 49 类图都已经是可直接生产的 renderer。
-
-公共候选只内置项目自己的 `our_moderate_vivid`。其他 palette 可以由用户自行提供，但需要自己记录出处并检查是否适合；它们不会被默认为项目内置 palette。
-
-![科研数据图型示例](docs/readme_assets/figure_gallery.png)
-
-以上面板由当前 pipeline 根据仓库内的合成规格生成。
-### 科研示意图
-
-登记的 grammar 是：
-
-`CONTROL_BLOCK_DIAGRAM`、`ALGORITHM_DECISION_LOOP`、`STAGED_METHOD_PIPELINE`、`BRANCH_MERGE_WORKFLOW`、`OFFLINE_ONLINE_SWIMLANE`、`HIERARCHICAL_ARCHITECTURE`、`DUAL_STREAM_FUSION`、`SEMANTIC_METHOD_OVERVIEW` 和 `EXPERIMENTAL_DATA_LIFECYCLE`。
-
-Grammar 描述的是语义结构和图的组织方式。节点、关系和布局坐标由 semantic spec 提供；它不是对任意手绘图的 AI 自动排版。生成原生 XML 是核心能力。draw.io Desktop 的应用导出是可选能力，曾在 draw.io Desktop 31.4.5 上做过本地测试；GitHub hosted CI 不运行 Desktop E2E。
-
-![科研示意图 grammar 示例](docs/readme_assets/schematic_gallery.png)
-
-这三张代表性示意图来自已经测试过的合成规格。图片只用于展示，不扩大九类 grammar 的支持边界；draw.io Desktop 导出仍是可选能力。
 ## 哪些情况会主动停止
 
 当系统无法可靠保留科学含义时，它会 fail closed，也就是停止并报告问题。常见例子包括：

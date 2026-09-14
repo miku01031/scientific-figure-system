@@ -1,60 +1,195 @@
 {
-  "generated_by": "examples/synthetic/readme_previews/run_previews.py",
-  "drawio_application_test_version": "31.4.5",
+  "schema_version": "readme-atlas-assets-v1",
+  "purpose": "High-resolution public-safe README overview assets",
+  "all_synthetic": true,
+  "third_party_assets": false,
+  "real_research_data": false,
+  "manual_scientific_edit": false,
+  "removed_obsolete_assets": [
+    "hero_preview.png",
+    "figure_gallery.png",
+    "schematic_gallery.png"
+  ],
   "assets": [
     {
-      "asset": "docs/readme_assets/hero_preview.png",
-      "dimensions": {
-        "width": 2000,
-        "height": 620
+      "asset": "docs/readme_assets/chart_archetype_atlas.png",
+      "dimensions_px": {
+        "width": 3920,
+        "height": 3090
       },
-      "file_size_bytes": 86605,
-      "sha256": "29c838a4ccc75889228c2891df7e3606c4e249ab07edb2fab41ce834b43b3526",
-      "source_specs": [
-        "examples/synthetic/readme_previews/figure_dense/spec.json",
-        "examples/synthetic/readme_previews/figure_discrete/spec.json",
-        "examples/synthetic/readme_previews/figure_errorbar/spec.json",
-        "skills/scientific-schematic/examples/T1.json",
-        "skills/scientific-schematic/examples/T3.json",
-        "skills/scientific-schematic/examples/T5.json"
+      "file_size_bytes": 1442451,
+      "sha256": "4e038d6a8a9ac3ad75528cc8f590fe402d83e879fe63a8ae2761ca548e684db4",
+      "source_files": [
+        "scientific_chart_archetype_atlas_20260911/10_ALL_CHART_ARCHETYPES_MASTER.png"
       ],
+      "source_sha256": [
+        "4e038d6a8a9ac3ad75528cc8f590fe402d83e879fe63a8ae2761ca548e684db4"
+      ],
+      "generated_by_our_system": true,
       "synthetic": true,
       "third_party_assets": false,
-      "manual_scientific_edit": false
+      "manual_scientific_edit": false,
+      "transformation": "byte-identical copy",
+      "backend": "historical synthetic benchmark renderer; montage/crop only"
     },
     {
-      "asset": "docs/readme_assets/figure_gallery.png",
-      "dimensions": {
-        "width": 1800,
-        "height": 700
+      "asset": "docs/readme_assets/chart_archetype_atlas_families_1.png",
+      "dimensions_px": {
+        "width": 1950,
+        "height": 3762
       },
-      "file_size_bytes": 101222,
-      "sha256": "42061d76918255dfecaa3ed77d23f4d5914c19457c304ab185339866d632d772",
-      "source_specs": [
-        "examples/synthetic/readme_previews/figure_dense/spec.json",
-        "examples/synthetic/readme_previews/figure_discrete/spec.json",
-        "examples/synthetic/readme_previews/figure_errorbar/spec.json"
+      "file_size_bytes": 578342,
+      "sha256": "a4d9c8bca11591e2906384ed88acd78172ebba760c814378d858da03af7d1d16",
+      "source_files": [
+        "scientific_chart_archetype_atlas_20260911/01_TIME_SERIES_ATLAS.png",
+        "scientific_chart_archetype_atlas_20260911/02_DISCRETE_ATLAS.png",
+        "scientific_chart_archetype_atlas_20260911/03_DISTRIBUTION_ATLAS.png"
       ],
+      "source_sha256": [
+        "4af94d462a113329ace8ba4e27a07fe214b0838f15b1c563a15dfaa972c046c6",
+        "ba2d169318e2e7d8483628c5e3fae885046d9af80533de9ad74b0c55d2d57893",
+        "2b9bb4c307ca8b663d24592b942605b5af5da779bfc66d88de6e4dc5e2d4e04a"
+      ],
+      "generated_by_our_system": true,
       "synthetic": true,
       "third_party_assets": false,
-      "manual_scientific_edit": false
+      "manual_scientific_edit": false,
+      "transformation": "lossless vertical stack with white separators; no resampling",
+      "backend": "historical synthetic benchmark renderer; montage/crop only"
     },
     {
-      "asset": "docs/readme_assets/schematic_gallery.png",
-      "dimensions": {
-        "width": 1800,
-        "height": 700
+      "asset": "docs/readme_assets/chart_archetype_atlas_families_2.png",
+      "dimensions_px": {
+        "width": 1950,
+        "height": 3272
       },
-      "file_size_bytes": 99118,
-      "sha256": "57511a5630e2bb75c803088fa6d3987abd387faaadfd1ec6e1387a67a6f75898",
-      "source_specs": [
-        "skills/scientific-schematic/examples/T1.json",
-        "skills/scientific-schematic/examples/T3.json",
-        "skills/scientific-schematic/examples/T5.json"
+      "file_size_bytes": 539969,
+      "sha256": "56429a7c09298aca32c8ef069ef8c302b168e6825d179d3c62f07ec32126a9e9",
+      "source_files": [
+        "scientific_chart_archetype_atlas_20260911/04_RELATIONSHIP_ATLAS.png",
+        "scientific_chart_archetype_atlas_20260911/05_INTERVAL_ATLAS.png",
+        "scientific_chart_archetype_atlas_20260911/06_CLASSIFICATION_ATLAS.png"
       ],
+      "source_sha256": [
+        "ae1776cc77003e1702c63dbff9f332d1a6b9481a8d727a218508b6c281acb20c",
+        "09e91758e636d8ea09e5afcddcd1a53cd649e0ae008320109c749c983e6753fc",
+        "71f95eea3402d68bdc4fd6c0cb5e73e33811474c14374c80f8d65da945b31999"
+      ],
+      "generated_by_our_system": true,
       "synthetic": true,
       "third_party_assets": false,
-      "manual_scientific_edit": false
+      "manual_scientific_edit": false,
+      "transformation": "lossless vertical stack with white separators; no resampling",
+      "backend": "historical synthetic benchmark renderer; montage/crop only"
+    },
+    {
+      "asset": "docs/readme_assets/chart_archetype_atlas_families_3.png",
+      "dimensions_px": {
+        "width": 1950,
+        "height": 3272
+      },
+      "file_size_bytes": 698062,
+      "sha256": "502d8606dc4dd27783cc127d8b99dd83b1f6f5349161ed37be21578a233d9821",
+      "source_files": [
+        "scientific_chart_archetype_atlas_20260911/07_MATRIX_ATLAS.png",
+        "scientific_chart_archetype_atlas_20260911/08_SPECIAL_ATLAS.png",
+        "scientific_chart_archetype_atlas_20260911/09_SIGNAL_PROCESSING_ATLAS.png"
+      ],
+      "source_sha256": [
+        "bf3d4c386d5efd7526dd250d635841a3b08ce4f3d691393c76afe6110ca0c33b",
+        "7322d43a7794e5c83652785312af75dbb9325114f86c88833e471c3ce7b926d8",
+        "0d46d7630d4d07c3fdd0ccd97de4fbce77ecd3b8f2e4f6a6bf1e3a470d6d1a75"
+      ],
+      "generated_by_our_system": true,
+      "synthetic": true,
+      "third_party_assets": false,
+      "manual_scientific_edit": false,
+      "transformation": "lossless vertical stack with white separators; no resampling",
+      "backend": "historical synthetic benchmark renderer; montage/crop only"
+    },
+    {
+      "asset": "docs/readme_assets/schematic_quality_overview.png",
+      "dimensions_px": {
+        "width": 1520,
+        "height": 1630
+      },
+      "file_size_bytes": 186115,
+      "sha256": "d166a69d811b96d896694fc38d8eeb30fb4ae5fecd0d70c5b15c518a8f026759",
+      "source_files": [
+        "final_quality_acceptance_20260911/04_SCHEMATIC_FINAL.png"
+      ],
+      "source_sha256": [
+        "d166a69d811b96d896694fc38d8eeb30fb4ae5fecd0d70c5b15c518a8f026759"
+      ],
+      "generated_by_our_system": true,
+      "synthetic": true,
+      "third_party_assets": false,
+      "manual_scientific_edit": false,
+      "transformation": "byte-identical copy",
+      "backend": "historical synthetic benchmark renderer; montage/crop only"
+    },
+    {
+      "asset": "docs/readme_assets/flowchart_grammar_overview.png",
+      "dimensions_px": {
+        "width": 3000,
+        "height": 8000
+      },
+      "file_size_bytes": 969592,
+      "sha256": "3311377d01e712054be68a89283291e8af3e03131563112dae9ffac151566efd",
+      "source_files": [
+        "flowchart_reference_atlas_20260911/06_ALL_FLOWCHART_GRAMMARS.png"
+      ],
+      "source_sha256": [
+        "3311377d01e712054be68a89283291e8af3e03131563112dae9ffac151566efd"
+      ],
+      "generated_by_our_system": true,
+      "synthetic": true,
+      "third_party_assets": false,
+      "manual_scientific_edit": false,
+      "transformation": "byte-identical copy",
+      "backend": "historical synthetic benchmark renderer; montage/crop only"
+    },
+    {
+      "asset": "docs/readme_assets/flowchart_grammar_overview_1.png",
+      "dimensions_px": {
+        "width": 3000,
+        "height": 4000
+      },
+      "file_size_bytes": 488072,
+      "sha256": "00cc185165f32c6c3faceca4d250f2879354a01abf3cded9162517c1537e1b52",
+      "source_files": [
+        "flowchart_reference_atlas_20260911/06_ALL_FLOWCHART_GRAMMARS.png"
+      ],
+      "source_sha256": [
+        "3311377d01e712054be68a89283291e8af3e03131563112dae9ffac151566efd"
+      ],
+      "generated_by_our_system": true,
+      "synthetic": true,
+      "third_party_assets": false,
+      "manual_scientific_edit": false,
+      "transformation": "lossless crop y=0..4000; no resampling",
+      "backend": "historical synthetic benchmark renderer; montage/crop only"
+    },
+    {
+      "asset": "docs/readme_assets/flowchart_grammar_overview_2.png",
+      "dimensions_px": {
+        "width": 3000,
+        "height": 4000
+      },
+      "file_size_bytes": 467937,
+      "sha256": "6810e1d5d8bd93b96ded06a9e06533c677a9b76ac89f6015663770e782a22434",
+      "source_files": [
+        "flowchart_reference_atlas_20260911/06_ALL_FLOWCHART_GRAMMARS.png"
+      ],
+      "source_sha256": [
+        "3311377d01e712054be68a89283291e8af3e03131563112dae9ffac151566efd"
+      ],
+      "generated_by_our_system": true,
+      "synthetic": true,
+      "third_party_assets": false,
+      "manual_scientific_edit": false,
+      "transformation": "lossless crop y=4000..8000; no resampling",
+      "backend": "historical synthetic benchmark renderer; montage/crop only"
     }
   ]
 }

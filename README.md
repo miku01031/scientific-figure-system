@@ -6,10 +6,6 @@ A small, evidence-preserving toolkit for creating publication-oriented scientifi
 
 This private release candidate is for graduate students, researchers, and engineers who can use Python and Matplotlib but want stronger checks around scientific meaning, provenance, and vector output.
 
-![Scientific Figure System preview](docs/readme_assets/hero_preview.png)
-
-Examples generated from synthetic data/specifications included in this repository. Preview images do not expand the tested capability scope described below.
-
 ## What it helps with
 
 The project has two separate products:
@@ -18,6 +14,52 @@ The project has two separate products:
 - **scientific-schematic** creates semantic technical diagrams from an explicit specification. Its canonical editable output is native `.drawio` XML. It currently registers nine diagram grammars.
 
 The central idea is simple: **data first, meaning first, style second**. The system checks that plotting and vector polishing do not silently change protected scientific values such as x/y arrays, intervals, thresholds, or event positions. When it cannot safely interpret an input, it stops and explains the problem instead of guessing.
+
+All preview images below are generated from repository-owned synthetic benchmarks. They are visual demonstrations, not scientific evidence.
+
+## Scientific chart atlas
+
+<a href="docs/readme_assets/chart_archetype_atlas.png"><img src="docs/readme_assets/chart_archetype_atlas.png" alt="Scientific chart archetype atlas overview" width="100%"></a>
+
+This is a reference atlas of chart archetypes explored during development. Click the image to open the high-resolution overview. The atlas is planning material; it does not mean that all 49 explored archetypes have production renderers. The current production-tested renderers are the three types listed below.
+
+For a more readable family-level view, the same generated atlas is split into three lossless overview sheets:
+
+<a href="docs/readme_assets/chart_archetype_atlas_families_1.png"><img src="docs/readme_assets/chart_archetype_atlas_families_1.png" alt="Chart atlas families A to C" width="100%"></a>
+
+<a href="docs/readme_assets/chart_archetype_atlas_families_2.png"><img src="docs/readme_assets/chart_archetype_atlas_families_2.png" alt="Chart atlas families D to F" width="100%"></a>
+
+<a href="docs/readme_assets/chart_archetype_atlas_families_3.png"><img src="docs/readme_assets/chart_archetype_atlas_families_3.png" alt="Chart atlas families G to I" width="100%"></a>
+
+## Current production-supported figure types
+
+The public candidate production scope contains three tested archetypes:
+
+- `DISCRETE_COMPARISON`
+- `DENSE_TIMESERIES`
+- `ERRORBAR_POINTWHISKER`
+
+The 49-entry chart registry is reference and planning material. It is not a claim that all 49 chart types are production renderers.
+
+The public candidate bundles the project-owned `our_moderate_vivid` palette. Other palettes may be supplied by a user with their own provenance and suitability review; they are not silently treated as bundled defaults.
+
+## Technical schematic examples
+
+<a href="docs/readme_assets/schematic_quality_overview.png"><img src="docs/readme_assets/schematic_quality_overview.png" alt="Synthetic technical schematic quality overview" width="100%"></a>
+
+These representative control, FDI, FTC, observer, and method diagrams come from our synthetic schematic quality suite. They are not copied from papers. The canonical editable source is native `.drawio` XML; the image is a display overview and does not expand the nine-grammar support boundary. draw.io Desktop application export is optional; it was locally tested with draw.io Desktop 31.4.5, while hosted CI does not run Desktop E2E.
+
+## Flowchart grammar examples
+
+<a href="docs/readme_assets/flowchart_grammar_overview.png"><img src="docs/readme_assets/flowchart_grammar_overview.png" alt="Synthetic flowchart grammar benchmark overview" width="100%"></a>
+
+The benchmark above shows the project-owned semantic and layout grammars. For clearer detail, the same sheet is available as two lossless crops:
+
+<a href="docs/readme_assets/flowchart_grammar_overview_1.png"><img src="docs/readme_assets/flowchart_grammar_overview_1.png" alt="Flowchart grammar benchmark stages B1 to B4" width="100%"></a>
+
+<a href="docs/readme_assets/flowchart_grammar_overview_2.png"><img src="docs/readme_assets/flowchart_grammar_overview_2.png" alt="Flowchart grammar benchmark stages B5 to B8" width="100%"></a>
+
+These are semantic/layout grammars, not figures copied from reference papers. The semantic specification supplies nodes, relationships, and layout coordinates; this is not AI layout of an arbitrary drawing.
 
 ## What it is not
 
@@ -65,34 +107,6 @@ PDF inspection and PDF-QA are another optional layer:
 
 PyMuPDF is used only for PDF inspection; it is not a core dependency. Third-party license information is in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-## Current support boundaries
-
-### Data figures
-
-The public candidate production scope contains three tested archetypes:
-
-- `DISCRETE_COMPARISON`
-- `DENSE_TIMESERIES`
-- `ERRORBAR_POINTWHISKER`
-
-The 49-entry chart registry is reference and planning material. It is not a claim that all 49 chart types are production renderers.
-
-The public candidate bundles the project-owned `our_moderate_vivid` palette. Other palettes may be supplied by a user with their own provenance and suitability review; they are not silently treated as bundled defaults.
-
-![Scientific figure archetype gallery](docs/readme_assets/figure_gallery.png)
-
-These panels are generated by the current pipeline from repository-owned synthetic specifications.
-### Scientific schematics
-
-The registered grammars are:
-
-`CONTROL_BLOCK_DIAGRAM`, `ALGORITHM_DECISION_LOOP`, `STAGED_METHOD_PIPELINE`, `BRANCH_MERGE_WORKFLOW`, `OFFLINE_ONLINE_SWIMLANE`, `HIERARCHICAL_ARCHITECTURE`, `DUAL_STREAM_FUSION`, `SEMANTIC_METHOD_OVERVIEW`, and `EXPERIMENTAL_DATA_LIFECYCLE`.
-
-A grammar describes semantic structure and diagram organization. The semantic specification supplies the nodes, relationships, and layout coordinates; this is not AI layout of an arbitrary drawing. Native XML generation is core. draw.io Desktop application export is optional and was locally tested with draw.io Desktop 31.4.5; hosted CI does not run Desktop E2E.
-
-![Scientific schematic grammar gallery](docs/readme_assets/schematic_gallery.png)
-
-These three representative diagrams come from tested synthetic specifications. The gallery is illustrative and does not expand the nine-grammar support boundary; draw.io Desktop export remains optional.
 ## When the system stops
 
 The tools fail closed when they cannot safely preserve meaning. Typical examples include:
