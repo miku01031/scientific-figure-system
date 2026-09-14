@@ -22,7 +22,21 @@ def _render(s,profile,out,archetype,capture):
  if n>6:raise ValueError('unsupported panel count')
  cols=1 if n==1 or (archetype=='ERRORBAR_POINTWHISKER' and n==2) else 2;rows=math.ceil(n/cols)
  h=max(66,rows*59+15) if cols==1 else rows*64+14
- fonts=t['font_pt'];plt.rcParams.update({'font.family':t['font_family'],'font.size':fonts['tick'],'axes.labelsize':fonts['axis'],'xtick.labelsize':fonts['tick'],'ytick.labelsize':fonts['tick'],'axes.linewidth':t['spine_pt'],'svg.fonttype':'path','svg.hashsalt':'scientific-figure-v1-candidate','path.simplify':False,'agg.path.chunksize':0,'mathtext.fontset':'stix'})
+ fonts=t['font_pt']
+ # Use the first font actually resolved by the portable fallback probe.  Keeping
+ # an unavailable Windows-only family in rcParams makes Matplotlib emit
+ # findfont warnings on Linux/macOS, which are promoted to a fail-closed glyph
+ # diagnostic before any SVG is written.
+ resolved_families=[]
+ latin=capture.fonts.get('latin',{}) if capture is not None else {}
+ if latin.get('available'):
+  resolved_families.append(latin['resolved_family'])
+ if _contains_cjk(s):
+  cjk=capture.fonts.get('cjk',{}) if capture is not None else {}
+  if cjk.get('available'):
+   resolved_families.append(cjk['resolved_family'])
+ font_family=resolved_families or t['font_family']
+ plt.rcParams.update({'font.family':font_family,'font.size':fonts['tick'],'axes.labelsize':fonts['axis'],'xtick.labelsize':fonts['tick'],'ytick.labelsize':fonts['tick'],'axes.linewidth':t['spine_pt'],'svg.fonttype':'path','svg.hashsalt':'scientific-figure-v1-candidate','path.simplify':False,'agg.path.chunksize':0,'mathtext.fontset':'stix'})
  fig,axs=plt.subplots(rows,cols,figsize=(w/25.4,h/25.4),squeeze=False)
  fig.subplots_adjust(left=max(.09,14/w),right=.97,bottom=14/h,top=1-10/h,wspace=.42,hspace=.65)
  identities=list(dict.fromkeys(q['identity'] for p in s['panels'] for q in p['series']));
