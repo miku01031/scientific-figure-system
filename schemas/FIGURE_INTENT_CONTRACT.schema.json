@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Figure intent contract",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scientific_question": {
+      "type": "string"
+    },
+    "figure_job": {
+      "type": "string"
+    },
+    "primary_message": {
+      "type": "string"
+    },
+    "primary_evidence": {
+      "type": "string"
+    },
+    "secondary_evidence": {
+      "type": "string"
+    },
+    "expected_pattern": {
+      "type": "string"
+    },
+    "surprising_pattern": {
+      "type": "string"
+    },
+    "must_preserve": {
+      "type": "string"
+    },
+    "caption_only_information": {
+      "type": "string"
+    }
+  }
+}

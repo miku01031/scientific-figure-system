@@ -1,0 +1,33 @@
+{
+  "latin_serif": [
+    "Times New Roman",
+    "Liberation Serif",
+    "DejaVu Serif"
+  ],
+  "latin_sans": [
+    "Arial",
+    "Liberation Sans",
+    "DejaVu Sans"
+  ],
+  "cjk_serif": [
+    "SimSun",
+    "Songti SC",
+    "STSong",
+    "Noto Serif CJK SC",
+    "Source Han Serif SC",
+    "WenQuanYi Zen Hei"
+  ],
+  "cjk_sans": [
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Noto Sans CJK SC",
+    "Source Han Sans SC",
+    "WenQuanYi Zen Hei"
+  ],
+  "math": [
+    "STIXGeneral",
+    "STIX Two Text",
+    "DejaVu Serif"
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "id": "T4",
+  "grammar": "DUAL_STREAM_FUSION",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "canvas": {
+    "width": 720,
+    "height": 360,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "LR"
+  },
+  "nodes": [
+    {
+      "id": "wave",
+      "label": "Measurement",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          20,
+          30
+        ],
+        "size": [
+          125,
+          100
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "features",
+      "label": "Features",
+      "type": "artifact",
+      "layout": {
+        "preferred_position": [
+          215,
+          30
+        ],
+        "size": [
+          125,
+          100
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "matrix",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "plant",
+      "label": "Physical model",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          20,
+          222
+        ],
+        "size": [
+          155,
+          100
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "equation",
+      "representation_class": "SCIENTIFIC_DATA",
+      "scientific_content": {
+        "equation_text": "dx/dt = Ax + Bu"
+      }
+    },
+    {
+      "id": "residual",
+      "label": "Residual",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          215,
+          222
+        ],
+        "size": [
+          125,
+          100
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "fusion",
+      "label": "Evidence fusion",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          410,
+          152
+        ],
+        "size": [
+          130,
+          56
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "result",
+      "label": "Diagnosis",
+      "type": "artifact",
+      "layout": {
+        "preferred_position": [
+          585,
+          130
+        ],
+        "size": [
+          120,
+          100
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    }
+  ],
+  "edges": [
+    {
+      "id": "d1",
+      "source": "wave",
+      "target": "features",
+      "label": "extract",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 8.372703412073491,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "d2",
+      "source": "plant",
+      "target": "residual",
+      "label": "predict",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": [
+        195,
+        257
+      ],
+      "label_anchor": "middle",
+      "label_fraction": 0.5000000000000004,
+      "label_normal_offset": 11.41732283464566,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "d3",
+      "source": "features",
+      "target": "fusion",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "top",
+      "waypoints": [
+        [
+          475,
+          80
+        ]
+      ],
+      "label_position": null
+    },
+    {
+      "id": "d4",
+      "source": "residual",
+      "target": "fusion",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "bottom",
+      "waypoints": [
+        [
+          475,
+          272
+        ]
+      ],
+      "label_position": null
+    },
+    {
+      "id": "d5",
+      "source": "fusion",
+      "target": "result",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Compatibility shim for older installers; core dependencies only.
+-r requirements-core.txt

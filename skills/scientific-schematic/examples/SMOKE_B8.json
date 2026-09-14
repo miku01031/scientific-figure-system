@@ -1,0 +1,418 @@
+{
+  "id": "SMOKE_B8",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "grammar": "HIERARCHICAL_ARCHITECTURE",
+  "canvas": {
+    "width": 580,
+    "height": 540,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "explicit from frozen atlas scene"
+  },
+  "nodes": [
+    {
+      "id": "n00",
+      "label": "Signals",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          62,
+          45
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n01",
+      "label": "Records",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          252,
+          45
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "dataset",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n02",
+      "label": "Model inputs",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          442,
+          45
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "equation",
+      "representation_class": "SCIENTIFIC_DATA",
+      "scientific_content": {
+        "equation_text": "dx/dt = Ax + Bu"
+      }
+    },
+    {
+      "id": "n10",
+      "label": "Windowing",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          40,
+          179
+        ],
+        "size": [
+          120,
+          42
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n11",
+      "label": "Relation building",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          230,
+          179
+        ],
+        "size": [
+          120,
+          42
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n12",
+      "label": "Model evaluation",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          420,
+          179
+        ],
+        "size": [
+          120,
+          42
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n20",
+      "label": "Features",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          62,
+          305
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "matrix",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n21",
+      "label": "Relations",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          252,
+          305
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "graph",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n22",
+      "label": "Residuals",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          442,
+          305
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n30",
+      "label": "Classes",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          62,
+          435
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n31",
+      "label": "Alarm rule",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          252,
+          435
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n32",
+      "label": "Validation service",
+      "type": "artifact",
+      "layout": {
+        "preferred_position": [
+          442,
+          435
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "source": "n00",
+      "target": "n10",
+      "label": "samples",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e1",
+      "source": "n01",
+      "target": "n11",
+      "label": "records",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e2",
+      "source": "n02",
+      "target": "n12",
+      "label": "states",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e3",
+      "source": "n10",
+      "target": "n20",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e4",
+      "source": "n11",
+      "target": "n21",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e5",
+      "source": "n12",
+      "target": "n22",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e6",
+      "source": "n20",
+      "target": "n30",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e7",
+      "source": "n21",
+      "target": "n31",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e8",
+      "source": "n22",
+      "target": "n32",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    }
+  ],
+  "lineage": "synthetic://flowchart_reference_atlas/benchmarks/SMOKE_B8/scene.json"
+}

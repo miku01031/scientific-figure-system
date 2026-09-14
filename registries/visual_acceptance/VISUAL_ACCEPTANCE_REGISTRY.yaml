@@ -1,0 +1,25 @@
+# Only historical human review evidence is recorded; machine QA is not acceptance.
+- artifact_id: acceptance_gallery_method_flowchart
+  artifact_family: schematic_prototype
+  review_date: 2026-09-11
+  reviewer_role: author
+  verdict: REJECT
+  notes: Generic box-and-arrow schematic was rejected for weak control/fault-diagnosis semantics.
+  evidence_source: historical_acceptance_gallery_review
+  scope: non-data schematic prototypes
+- artifact_id: schematic_survivors_round2
+  artifact_family: scientific_schematic
+  review_date: 2026-09-12
+  reviewer_role: author
+  verdict: PENDING
+  notes: Survivor status was a narrowing decision, not final journal acceptance.
+  evidence_source: historical_round2_selection
+  scope: S1B S2A S2C S3A
+- artifact_id: core_data_archetypes
+  artifact_family: scientific_figure
+  review_date: 2026-09-14
+  reviewer_role: author
+  verdict: PENDING
+  notes: Machine-tested examples remain subject to author visual acceptance.
+  evidence_source: acceptance_suite_status
+  scope: discrete dense-timeseries errorbar

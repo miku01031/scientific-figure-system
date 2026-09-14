@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Renderer-neutral schematic spec v0.1 prototype",
+  "type": "object",
+  "required": [
+    "id",
+    "notice",
+    "canvas",
+    "layout",
+    "nodes",
+    "edges",
+    "grammar"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "notice": {
+      "type": "string"
+    },
+    "canvas": {
+      "type": "object",
+      "required": [
+        "width",
+        "height",
+        "width_mm"
+      ],
+      "properties": {
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "width_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "required": [
+        "direction"
+      ]
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "label",
+          "layout"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "action",
+              "data",
+              "decision",
+              "model",
+              "physical_object",
+              "artifact",
+              "container",
+              "semantic_primitive",
+              "junction",
+              "state"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "layout": {
+            "type": "object",
+            "required": [
+              "preferred_position",
+              "size"
+            ],
+            "properties": {
+              "preferred_position": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "size": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "rank": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "lane": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "group": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "primitive": {
+            "type": "string"
+          },
+          "representation_class": {
+            "enum": [
+              "ICONIC_NON_DATA",
+              "SCIENTIFIC_DATA"
+            ]
+          },
+          "scientific_content": {
+            "type": "object",
+            "properties": {
+              "equation_text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "target",
+          "label",
+          "direction",
+          "style",
+          "semantic_role"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "style": {
+            "type": "string"
+          },
+          "semantic_role": {
+            "type": "string"
+          },
+          "direction": {
+            "enum": [
+              "forward"
+            ]
+          },
+          "waypoints": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "label_position_locked": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "grammar": {
+      "enum": [
+        "CONTROL_BLOCK_DIAGRAM",
+        "ALGORITHM_DECISION_LOOP",
+        "STAGED_METHOD_PIPELINE",
+        "BRANCH_MERGE_WORKFLOW",
+        "OFFLINE_ONLINE_SWIMLANE",
+        "HIERARCHICAL_ARCHITECTURE",
+        "DUAL_STREAM_FUSION",
+        "SEMANTIC_METHOD_OVERVIEW",
+        "EXPERIMENTAL_DATA_LIFECYCLE"
+      ]
+    }
+  }
+}

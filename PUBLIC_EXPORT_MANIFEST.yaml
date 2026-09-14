@@ -1,0 +1,34 @@
+version: 1
+include:
+  - README.md
+  - README_zh.md
+  - LICENSE.placeholder
+  - LICENSE_DECISION_REQUIRED.md
+  - CITATION.cff
+  - CHANGELOG.md
+  - CONTRIBUTING.md
+  - SECURITY.md
+  - THIRD_PARTY_NOTICES.md
+  - requirements-candidate.txt
+  - requirements-runtime.txt
+  - requirements-core.txt
+  - requirements-publication.txt
+  - requirements-pdfqa.txt
+  - requirements-dev.txt
+  - ERRORS.md
+  - .gitignore
+  - .gitattributes
+  - skills/
+  - registries/
+  - schemas/
+  - tests/
+  - examples/synthetic/
+  - docs/
+  - .github/
+exclude:
+  - real research data and figures
+  - historical audit archives
+  - installed-skill backups
+  - external repository clones
+  - vendored runtimes, DLLs, and fonts
+  - caches, temporary files, debug output, and large archives

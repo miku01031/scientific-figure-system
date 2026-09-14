@@ -1,0 +1,541 @@
+scope: REFERENCE_ADVISOR_ONLY
+archetypes:
+- id: A1
+  name: LINE_SINGLE
+  family: A
+  use_when: Ordered single response
+  avoid_when: Unordered categories
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: A2
+  name: LINE_MULTI
+  family: A
+  use_when: Several responses on a common time scale
+  avoid_when: Many indistinguishable traces
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: A3
+  name: STEP
+  family: A
+  use_when: Sample-and-hold or discrete state changes
+  avoid_when: Continuous interpolation is scientifically intended
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: A4
+  name: UNCERTAINTY_RIBBON
+  family: A
+  use_when: Time-varying center and defined uncertainty
+  avoid_when: Undefined interval or dependent replicates
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: A5
+  name: EVENT_THRESHOLD_TIMESERIES
+  family: A
+  use_when: Known event and threshold against time response
+  avoid_when: Threshold chosen after seeing data
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: A6
+  name: INSET_ZOOM_TIMESERIES
+  family: A
+  use_when: Local detail with full absolute context
+  avoid_when: Inset selected to exaggerate a difference
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: B1
+  name: GROUPED_BAR
+  family: B
+  use_when: Few groups with comparable absolute amounts
+  avoid_when: Many groups or precise differences dominate
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: B2
+  name: STACKED_BAR
+  family: B
+  use_when: Additive parts and meaningful totals
+  avoid_when: Components are not additive
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: B3
+  name: NORMALIZED_100_STACKED
+  family: B
+  use_when: Composition when totals differ
+  avoid_when: Absolute totals are the question
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: B4
+  name: LOLLIPOP
+  family: B
+  use_when: Compact categorical amount comparison
+  avoid_when: Uncertain estimates require intervals
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: B5
+  name: DUMBBELL
+  family: B
+  use_when: Paired before-after comparison
+  avoid_when: Unpaired categories or many endpoints
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: B6
+  name: SLOPEGRAPH
+  family: B
+  use_when: Two ordered snapshots and rank changes
+  avoid_when: Dense or coincident endpoint labels
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: C1
+  name: HISTOGRAM
+  family: C
+  use_when: Sample distribution with explicit bins
+  avoid_when: Arbitrary bin tuning drives apparent modes
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: C2
+  name: KDE
+  family: C
+  use_when: Enough continuous observations to estimate density
+  avoid_when: Small n or discrete mass
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: C3
+  name: ECDF
+  family: C
+  use_when: Exact distribution comparison without smoothing
+  avoid_when: Many curves cannot be followed
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: C4
+  name: BOXPLOT
+  family: C
+  use_when: Median/IQR summary for multiple groups
+  avoid_when: Multimodality or small n is central
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: C5
+  name: VIOLIN
+  family: C
+  use_when: Adequate continuous sample for density shape
+  avoid_when: Small samples or precise quantile comparison
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: C6
+  name: BOX_PLUS_RAW_POINTS
+  family: C
+  use_when: Distribution summary plus all raw observations
+  avoid_when: Millions of points overwhelm display
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: C7
+  name: RIDGELINE
+  family: C
+  use_when: Ordered collection of distributions
+  avoid_when: Precise density or absolute height comparison
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: D1
+  name: SCATTER
+  family: D
+  use_when: Relationship between two measured variables
+  avoid_when: Severe overplotting hides density
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: D2
+  name: SCATTER_TREND
+  family: D
+  use_when: Relationship plus justified model trend
+  avoid_when: Trend form has no scientific basis
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: D3
+  name: SCATTER_CONFIDENCE_BAND
+  family: D
+  use_when: Conditional mean and explicitly defined model CI
+  avoid_when: Model assumptions fail or prediction interval needed
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: D4
+  name: BUBBLE
+  family: D
+  use_when: Third nonnegative magnitude encoded by area
+  avoid_when: Precise magnitude comparison required
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: D5
+  name: HEXBIN_OR_DENSITY_SCATTER
+  family: D
+  use_when: Many overlapping points where density is meaningful
+  avoid_when: Individual identities are essential
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: E1
+  name: ERRORBAR
+  family: E
+  use_when: Estimates and explicit interval definition
+  avoid_when: Intervals mix meanings
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: E2
+  name: FOREST
+  family: E
+  use_when: Multiple estimates against common reference
+  avoid_when: Axes or units differ between rows
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: E3
+  name: POINT_WHISKER
+  family: E
+  use_when: Compact interval comparison by position
+  avoid_when: Too many coincident estimates
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: E4
+  name: BLAND_ALTMAN
+  family: E
+  use_when: Agreement of two methods in same units
+  avoid_when: Strong proportional bias ignored
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: E5
+  name: CALIBRATION
+  family: E
+  use_when: Instrument response against known reference
+  avoid_when: Unrelated variables or uncertain reference ignored
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: F1
+  name: CONFUSION_COUNTS
+  family: F
+  use_when: Classification error counts
+  avoid_when: Class sizes differ and rates are the objective
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: F2
+  name: CONFUSION_NORMALIZED
+  family: F
+  use_when: Per-class conditional error percentages
+  avoid_when: Absolute event burden is required
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: F3
+  name: ROC
+  family: F
+  use_when: Ranking discrimination across thresholds
+  avoid_when: Rare-positive usefulness judged only by ROC
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: F4
+  name: PRECISION_RECALL
+  family: F
+  use_when: Positive retrieval tradeoff with stated prevalence
+  avoid_when: Comparing populations with different prevalence blindly
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: F5
+  name: RELIABILITY_DIAGRAM
+  family: F
+  use_when: Probability calibration with bin counts
+  avoid_when: Sparse bins treated as exact
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: F6
+  name: THRESHOLD_TRADEOFF
+  family: F
+  use_when: Operational sensitivity/false alarm by threshold
+  avoid_when: Costs and prevalence must determine deployment
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: G1
+  name: HEATMAP_SEQUENTIAL
+  family: G
+  use_when: Ordered matrix magnitudes on common scale
+  avoid_when: Precise values without annotations are required
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: G2
+  name: HEATMAP_DIVERGING
+  family: G
+  use_when: Signed deviations around meaningful zero
+  avoid_when: No meaningful midpoint
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: G3
+  name: CORRELATION_MATRIX
+  family: G
+  use_when: Pairwise linear association overview
+  avoid_when: Nonlinear association or causal conclusions
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: G4
+  name: PAIRWISE_MATRIX
+  family: G
+  use_when: Few-variable pairwise relationships
+  avoid_when: Many dimensions produce unreadable matrix
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: G5
+  name: PARALLEL_COORDINATES
+  family: G
+  use_when: Few normalized multivariate profiles
+  avoid_when: Precise values or many crossings dominate
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: H1
+  name: CONTOUR
+  family: H
+  use_when: Continuous scalar field in two coordinates
+  avoid_when: Sparse unsupported interpolation
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: H2
+  name: 3D_SURFACE
+  family: H
+  use_when: Scientifically meaningful continuous z=f(x,y)
+  avoid_when: Decorative third dimension
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: H3
+  name: 3D_SCATTER
+  family: H
+  use_when: Three real spatial/feature coordinates
+  avoid_when: Two dimensions suffice or depth is ambiguous
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: H4
+  name: POLAR_ROSE
+  family: H
+  use_when: Directional/cyclic counts
+  avoid_when: Ordinary unordered categories
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: H5
+  name: RADAR
+  family: H
+  use_when: Few objects on few common-scale dimensions
+  avoid_when: Precise comparisons or unequal scales
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: H6
+  name: SANKEY_ALLUVIAL
+  family: H
+  use_when: Conserved flows between stages
+  avoid_when: Nonadditive relationships
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: H7
+  name: CHORD
+  family: H
+  use_when: Compact aggregate connectivity overview
+  avoid_when: Precise flow tracing or many groups
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: H8
+  name: NETWORK
+  family: H
+  use_when: Topology is itself the scientific object
+  avoid_when: Relationships can be a simpler table
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY
+- id: I1
+  name: SPECTROGRAM
+  family: I
+  use_when: Time-varying signal frequency content
+  avoid_when: Stationary PSD is sufficient
+  technical_status: PASS
+  human_acceptance_status: PENDING_HUMAN_ACCEPTANCE
+  suggested_renderer: external archetype-specific renderer; not scientific-figure
+    production support
+  recommendation_class: PENDING_HUMAN_REVIEW
+  scope: REFERENCE_ADVISOR_ONLY

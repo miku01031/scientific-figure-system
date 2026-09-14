@@ -1,0 +1,280 @@
+{
+  "id": "SMOKE_B3",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "grammar": "DUAL_STREAM_FUSION",
+  "canvas": {
+    "width": 580,
+    "height": 400,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "explicit from frozen atlas scene"
+  },
+  "nodes": [
+    {
+      "id": "nd",
+      "label": "Measurement windows",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          27,
+          75
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "nf",
+      "label": "Data features",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          202,
+          75
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "nm",
+      "label": "Nominal model",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          27,
+          265
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "equation",
+      "representation_class": "SCIENTIFIC_DATA",
+      "scientific_content": {
+        "equation_text": "dx/dt = Ax + Bu"
+      }
+    },
+    {
+      "id": "nr",
+      "label": "Residual evidence",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          202,
+          265
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "nz",
+      "label": "Evidence fusion",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          367,
+          170
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "no",
+      "label": "Diagnosis",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          487,
+          170
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "source": "nd",
+      "target": "nf",
+      "label": "extract",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e1",
+      "source": "nm",
+      "target": "nr",
+      "label": "compare",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e2",
+      "source": "nf",
+      "target": "nz",
+      "label": "data",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [
+        [
+          335,
+          100
+        ],
+        [
+          335,
+          180
+        ],
+        [
+          363,
+          180
+        ]
+      ],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e3",
+      "source": "nr",
+      "target": "nz",
+      "label": "model",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [
+        [
+          335,
+          290
+        ],
+        [
+          335,
+          210
+        ],
+        [
+          363,
+          210
+        ]
+      ],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e4",
+      "source": "nz",
+      "target": "no",
+      "label": "infer",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e5",
+      "source": "nd",
+      "target": "nr",
+      "label": "$y(t)$",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [
+        [
+          65,
+          200
+        ],
+        [
+          240,
+          200
+        ]
+      ],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    }
+  ],
+  "lineage": "synthetic://flowchart_reference_atlas/benchmarks/SMOKE_B3/scene.json"
+}

@@ -1,0 +1,22 @@
+version: 0.1.0-rc1
+public_scope: BUNDLED_ONLY
+categorical:
+  our_moderate_vivid:
+    id: CAT_C0
+    type: categorical
+    colors: ['#3288AC', '#A13A75', '#F8891E', '#242023', '#518A58', '#7A5FAC']
+    max_categories: 6
+    recommended_marks: [line, marker, filled_bar, interval]
+    avoid_marks: [continuous_heatmap]
+    source: project-owned table for this public candidate
+    publication_candidate: PENDING_HUMAN_ACCEPTANCE
+    bundled: true
+  user_supplied:
+    type: categorical
+    colors: null
+    bundled: false
+    source: user-provided values; caller must record provenance and license
+sequential: {}
+diverging:
+  status: EXPERIMENTAL_PENDING
+  stable_default: null

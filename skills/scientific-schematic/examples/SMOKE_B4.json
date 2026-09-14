@@ -1,0 +1,189 @@
+{
+  "id": "SMOKE_B4",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "grammar": "SEMANTIC_METHOD_OVERVIEW",
+  "canvas": {
+    "width": 580,
+    "height": 400,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "explicit from frozen atlas scene"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "label": "Multichannel|measurements",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          17,
+          90
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n1",
+      "label": "Aligned windows",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          134,
+          90
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n2",
+      "label": "Constructed graph",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          251,
+          90
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "graph",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n3",
+      "label": "Graph model",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          368,
+          90
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "model",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "n4",
+      "label": "Diagnosis",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          485,
+          90
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "source": "n0",
+      "target": "n1",
+      "label": "align",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e1",
+      "source": "n1",
+      "target": "n2",
+      "label": "construct",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e2",
+      "source": "n2",
+      "target": "n3",
+      "label": "propagate",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e3",
+      "source": "n3",
+      "target": "n4",
+      "label": "read out",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    }
+  ],
+  "lineage": "synthetic://flowchart_reference_atlas/benchmarks/SMOKE_B4/scene.json"
+}

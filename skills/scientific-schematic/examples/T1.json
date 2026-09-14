@@ -1,0 +1,394 @@
+{
+  "id": "T1",
+  "grammar": "CONTROL_BLOCK_DIAGRAM",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "canvas": {
+    "width": 720,
+    "height": 300,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "LR"
+  },
+  "nodes": [
+    {
+      "id": "ref",
+      "label": "r(t)",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          12,
+          86
+        ],
+        "size": [
+          45,
+          30
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "text"
+    },
+    {
+      "id": "sum",
+      "label": "+",
+      "type": "junction",
+      "layout": {
+        "preferred_position": [
+          80,
+          90
+        ],
+        "size": [
+          26,
+          26
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "ellipse"
+    },
+    {
+      "id": "C",
+      "label": "Controller\nC",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          155,
+          77
+        ],
+        "size": [
+          100,
+          52
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "A",
+      "label": "Actuator",
+      "type": "physical_object",
+      "layout": {
+        "preferred_position": [
+          320,
+          77
+        ],
+        "size": [
+          90,
+          52
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "P",
+      "label": "Plant P",
+      "type": "physical_object",
+      "layout": {
+        "preferred_position": [
+          485,
+          77
+        ],
+        "size": [
+          95,
+          52
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "out",
+      "label": "y(t)",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          642,
+          88
+        ],
+        "size": [
+          55,
+          30
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "text"
+    },
+    {
+      "id": "H",
+      "label": "Sensor H",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          330,
+          212
+        ],
+        "size": [
+          100,
+          40
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "fault",
+      "label": "f_a(t)",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          340,
+          15
+        ],
+        "size": [
+          50,
+          25
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "text"
+    },
+    {
+      "id": "dist",
+      "label": "d(t)",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          507,
+          15
+        ],
+        "size": [
+          50,
+          25
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "text"
+    },
+    {
+      "id": "noise",
+      "label": "v(t)",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          450,
+          185
+        ],
+        "size": [
+          45,
+          25
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "text"
+    },
+    {
+      "id": "minus",
+      "label": "−",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          76,
+          122
+        ],
+        "size": [
+          12,
+          16
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "text"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "source": "ref",
+      "target": "sum",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null
+    },
+    {
+      "id": "e2",
+      "source": "sum",
+      "target": "C",
+      "label": "e(t)",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.49999999999999983,
+      "label_normal_offset": 8.372703412073491,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "e3",
+      "source": "C",
+      "target": "A",
+      "label": "u(t)",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 8.372703412073491,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "e4",
+      "source": "A",
+      "target": "P",
+      "label": "u_a(t)",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5000000000000004,
+      "label_normal_offset": 8.372703412073491,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "e5",
+      "source": "P",
+      "target": "out",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null
+    },
+    {
+      "id": "e6",
+      "source": "out",
+      "target": "H",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "right",
+      "waypoints": [
+        [
+          669.5,
+          232
+        ]
+      ],
+      "label_position": null
+    },
+    {
+      "id": "e7",
+      "source": "H",
+      "target": "sum",
+      "label": "y_m(t)",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "negative_feedback",
+      "source_port": "left",
+      "target_port": "bottom",
+      "waypoints": [
+        [
+          93,
+          232
+        ]
+      ],
+      "label_position": [
+        195,
+        220
+      ],
+      "label_anchor": "middle",
+      "label_fraction": 0.38243626062322944,
+      "label_normal_offset": -9.133858267716533,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "e8",
+      "source": "fault",
+      "target": "A",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "fault_injection",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null
+    },
+    {
+      "id": "e9",
+      "source": "dist",
+      "target": "P",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "disturbance",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null
+    },
+    {
+      "id": "e10",
+      "source": "noise",
+      "target": "H",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "sensor_noise",
+      "source_port": "left",
+      "target_port": "top",
+      "waypoints": [
+        [
+          380,
+          197.5
+        ]
+      ],
+      "label_position": null
+    }
+  ]
+}

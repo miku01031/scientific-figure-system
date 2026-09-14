@@ -1,0 +1,284 @@
+{
+  "id": "SMOKE_B6",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "grammar": "BRANCH_MERGE_WORKFLOW",
+  "canvas": {
+    "width": 580,
+    "height": 400,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "explicit from frozen atlas scene"
+  },
+  "nodes": [
+    {
+      "id": "nd",
+      "label": "Measurement",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          17,
+          170
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "np",
+      "label": "Preprocess",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          110,
+          174
+        ],
+        "size": [
+          120,
+          42
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "nt",
+      "label": "Time features",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          267,
+          60
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "nf",
+      "label": "Frequency features",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          267,
+          270
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "nz",
+      "label": "Fusion",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          387,
+          170
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "no",
+      "label": "Decision",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          497,
+          170
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "source": "nd",
+      "target": "np",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e1",
+      "source": "np",
+      "target": "nt",
+      "label": "time",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [
+        [
+          238,
+          195
+        ],
+        [
+          238,
+          85
+        ]
+      ],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e2",
+      "source": "np",
+      "target": "nf",
+      "label": "FFT",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [
+        [
+          238,
+          195
+        ],
+        [
+          238,
+          295
+        ]
+      ],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e3",
+      "source": "nt",
+      "target": "nz",
+      "label": "statistics",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [
+        [
+          376,
+          85
+        ],
+        [
+          376,
+          180
+        ],
+        [
+          383,
+          180
+        ]
+      ],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e4",
+      "source": "nf",
+      "target": "nz",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [
+        [
+          376,
+          295
+        ],
+        [
+          376,
+          210
+        ],
+        [
+          383,
+          210
+        ]
+      ],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e5",
+      "source": "nz",
+      "target": "no",
+      "label": "infer",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    }
+  ],
+  "lineage": "synthetic://flowchart_reference_atlas/benchmarks/SMOKE_B6/scene.json"
+}

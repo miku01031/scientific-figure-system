@@ -1,0 +1,136 @@
+grammars:
+- name: CONTROL_BLOCK_DIAGRAM
+  use_when: reference/control/plant feedback with named signals
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: explicit layout supplied by semantic spec
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required
+- name: ALGORITHM_DECISION_LOOP
+  use_when: iterative procedure with a stopping decision
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: top-down with return branch
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required
+- name: STAGED_METHOD_PIPELINE
+  use_when: scientific object transformation across stages
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: explicit layout supplied by semantic spec
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required
+- name: BRANCH_MERGE_WORKFLOW
+  use_when: parallel evidence branches merging to a decision
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: explicit layout supplied by semantic spec
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required
+- name: OFFLINE_ONLINE_SWIMLANE
+  use_when: training artifacts transferred into inference
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: explicit layout supplied by semantic spec
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required
+- name: HIERARCHICAL_ARCHITECTURE
+  use_when: interfaces between processing/representation layers
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: explicit layout supplied by semantic spec
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required
+- name: DUAL_STREAM_FUSION
+  use_when: complementary data and model evidence
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: explicit layout supplied by semantic spec
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required
+- name: SEMANTIC_METHOD_OVERVIEW
+  use_when: graph or model transformations and intermediate objects
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: explicit layout supplied by semantic spec
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required
+- name: EXPERIMENTAL_DATA_LIFECYCLE
+  use_when: acquisition, cleaning, analysis and validation
+  avoid_when: when this topology does not match the declared scientific relationships
+  reading_direction: explicit layout supplied by semantic spec
+  recommended_primitives:
+  - waveform
+  - matrix
+  - small_graph
+  default_size_mm: 145
+  common_failure_modes:
+  - unlabeled interfaces
+  - unresolved label/edge collision
+  - missing intermediate artifact
+  status: RC_NATIVE_BACKEND_CANDIDATE
+  layout_policy: No topology invention; explicit node positions/ports required

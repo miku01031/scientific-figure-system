@@ -1,0 +1,303 @@
+{
+  "id": "SMOKE_B5",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "grammar": "OFFLINE_ONLINE_SWIMLANE",
+  "canvas": {
+    "width": 580,
+    "height": 460,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "explicit from frozen atlas scene"
+  },
+  "nodes": [
+    {
+      "id": "nd",
+      "label": "Training dataset",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          27,
+          75
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "dataset",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "nt",
+      "label": "Training model",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          177,
+          75
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "model",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "nw",
+      "label": "Trained artifact",
+      "type": "artifact",
+      "layout": {
+        "preferred_position": [
+          327,
+          75
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "nv",
+      "label": "Validation",
+      "type": "artifact",
+      "layout": {
+        "preferred_position": [
+          477,
+          75
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "nx",
+      "label": "New measurements",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          27,
+          265
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "nf",
+      "label": "Features",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          177,
+          265
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "matrix",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "nm",
+      "label": "Frozen model",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          327,
+          265
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "model",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "no",
+      "label": "Online decision",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          477,
+          265
+        ],
+        "size": [
+          76,
+          50
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "source": "nd",
+      "target": "nt",
+      "label": "fit",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e1",
+      "source": "nt",
+      "target": "nw",
+      "label": "freeze",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e2",
+      "source": "nw",
+      "target": "nv",
+      "label": "evaluate",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e3",
+      "source": "nx",
+      "target": "nf",
+      "label": "transform",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e4",
+      "source": "nf",
+      "target": "nm",
+      "label": "apply",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e5",
+      "source": "nm",
+      "target": "no",
+      "label": "infer",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e6",
+      "source": "nw",
+      "target": "nm",
+      "label": "deploy",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    }
+  ],
+  "lineage": "synthetic://flowchart_reference_atlas/benchmarks/SMOKE_B5/scene.json"
+}

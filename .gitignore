@@ -1,0 +1,17 @@
+**/__pycache__/
+**/.pytest_cache/
+\.mplconfig/
+\.mplconfig-pub/
+**/.mplconfig/
+**/.mplconfig-pub/
+*.pyc
+.coverage
+coverage/
+.venv/
+venv/
+test_outputs/
+pipeline_outputs/
+out_*/
+examples/**/output/
+*.tmp
+*.log

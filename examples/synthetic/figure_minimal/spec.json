@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0",
+  "figure_id": "synthetic-minimal-discrete",
+  "caption_information": "Synthetic demonstration only; not scientific evidence.",
+  "sources": [{"path": "data.csv", "sha256": "UPDATED_BY_LAUNCHER"}],
+  "panels": [{"panel_id":"main","title":"Synthetic comparison","domain":"discrete","x_axis":{"label":"Condition","unit":"index","range":[-0.5,3.5]},"y_axis":{"label":"Synthetic response","unit":"a.u.","range":[0,1.2]},"series":[{"series_id":"s0","meaning":"synthetic response","identity":"demo","statistic":"observed","x":[0,1,2,3],"y":[0.2,0.5,0.8,1.0],"connect":false}]}]
+}

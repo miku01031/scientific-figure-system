@@ -1,0 +1,7 @@
+reference: '#666666'
+neutral: '#777777'
+missing: '#D9D9D9'
+fault_event: '#8B2635'
+threshold: '#8B2635'
+baseline: '#999999'
+text: '#242023'

@@ -1,0 +1,259 @@
+{
+  "id": "T2",
+  "grammar": "ALGORITHM_DECISION_LOOP",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "canvas": {
+    "width": 720,
+    "height": 520,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "LR"
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "label": "Initialize",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          280,
+          20
+        ],
+        "size": [
+          160,
+          38
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "ellipse"
+    },
+    {
+      "id": "compute",
+      "label": "Compute candidate",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          280,
+          95
+        ],
+        "size": [
+          160,
+          44
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "eval",
+      "label": "Evaluate",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          280,
+          176
+        ],
+        "size": [
+          160,
+          44
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "judge",
+      "label": "Converged?",
+      "type": "decision",
+      "layout": {
+        "preferred_position": [
+          285,
+          257
+        ],
+        "size": [
+          150,
+          74
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "diamond"
+    },
+    {
+      "id": "update",
+      "label": "Update",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          510,
+          272
+        ],
+        "size": [
+          130,
+          44
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "output",
+      "label": "Output",
+      "type": "artifact",
+      "layout": {
+        "preferred_position": [
+          280,
+          377
+        ],
+        "size": [
+          160,
+          44
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "end",
+      "label": "End",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          280,
+          458
+        ],
+        "size": [
+          160,
+          38
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "ellipse"
+    }
+  ],
+  "edges": [
+    {
+      "id": "a1",
+      "source": "start",
+      "target": "compute",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null
+    },
+    {
+      "id": "a2",
+      "source": "compute",
+      "target": "eval",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null
+    },
+    {
+      "id": "a3",
+      "source": "eval",
+      "target": "judge",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null
+    },
+    {
+      "id": "a4",
+      "source": "judge",
+      "target": "output",
+      "label": "YES",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": [
+        383,
+        353
+      ],
+      "label_anchor": "middle",
+      "label_fraction": 0.47826086956521746,
+      "label_normal_offset": 17.506561679790025,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "a5",
+      "source": "judge",
+      "target": "update",
+      "label": "NO",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 8.372703412073491,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "a6",
+      "source": "update",
+      "target": "compute",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "iteration",
+      "source_port": "top",
+      "target_port": "right",
+      "waypoints": [
+        [
+          575,
+          117
+        ]
+      ],
+      "label_position": null
+    },
+    {
+      "id": "a7",
+      "source": "output",
+      "target": "end",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null
+    }
+  ]
+}

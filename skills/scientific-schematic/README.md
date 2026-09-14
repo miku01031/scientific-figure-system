@@ -1,0 +1,5 @@
+# Scientific Schematic 0.1.x — public candidate
+
+The canonical source is a renderer-neutral semantic JSON specification and a native `.drawio` document. Nine registered semantic grammars are accepted; unknown grammars fail closed. The spec supplies topology, node geometry and labels; the grammar registry is a validation category, not an automatic layout engine. Native draw.io XML can be generated on any platform. Application export is optional and discovered through explicit configuration, environment, PATH, or standard OS install locations. No workstation path, application, runtime bundle, or font is vendored.
+
+The publication path is native `.drawio` → draw.io application SVG when available → metadata-only normalizer → CairoSVG PDF/PNG. Without draw.io, the pipeline returns a native-only result and records application-level preservation as `NOT_CHECKED`. Without native Cairo, SVG/native XML remain available while PDF/PNG are reported unavailable. Application export was tested locally with draw.io Desktop 31.4.5 only. This candidate is not installed and does not replace manuscript artwork.

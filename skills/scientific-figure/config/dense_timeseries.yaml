@@ -1,0 +1,5 @@
+{
+  "min_samples": 32,
+  "regular_markers": false,
+  "event_markers_only": true
+}

@@ -1,0 +1,311 @@
+{
+  "id": "SMOKE_B1",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "grammar": "ALGORITHM_DECISION_LOOP",
+  "canvas": {
+    "width": 580,
+    "height": 540,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "explicit from frozen atlas scene"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "label": "Start",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          212,
+          10.0
+        ],
+        "size": [
+          76,
+          50.0
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "ellipse"
+    },
+    {
+      "id": "n1",
+      "label": "Initialize",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          190,
+          90.66666666666667
+        ],
+        "size": [
+          120,
+          42.000000000000014
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n2",
+      "label": "Compute candidate",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          190,
+          167.33333333333334
+        ],
+        "size": [
+          120,
+          42.0
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n3",
+      "label": "Evaluate",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          190,
+          244.0
+        ],
+        "size": [
+          120,
+          42.0
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n4",
+      "label": "Converged?",
+      "type": "decision",
+      "layout": {
+        "preferred_position": [
+          212,
+          316.6666666666667
+        ],
+        "size": [
+          76,
+          50.0
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "diamond"
+    },
+    {
+      "id": "n5",
+      "label": "Output",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          190,
+          397.33333333333337
+        ],
+        "size": [
+          120,
+          42.0
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "n6",
+      "label": "End",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          212,
+          470.0
+        ],
+        "size": [
+          76,
+          50.0
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "ellipse"
+    },
+    {
+      "id": "nup",
+      "label": "Update",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          395,
+          320.6666666666667
+        ],
+        "size": [
+          120,
+          42.0
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "source": "n0",
+      "target": "n1",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e1",
+      "source": "n1",
+      "target": "n2",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e2",
+      "source": "n2",
+      "target": "n3",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e3",
+      "source": "n3",
+      "target": "n4",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e4",
+      "source": "n4",
+      "target": "n5",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e5",
+      "source": "n5",
+      "target": "n6",
+      "label": "",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e6",
+      "source": "n4",
+      "target": "nup",
+      "label": "NO",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    },
+    {
+      "id": "e7",
+      "source": "nup",
+      "target": "n2",
+      "label": "iterate",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "top",
+      "target_port": "right",
+      "waypoints": [
+        [
+          455,
+          188.33333333333334
+        ]
+      ],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 14,
+      "label_tangent_offset": 0
+    }
+  ],
+  "lineage": "synthetic://flowchart_reference_atlas/benchmarks/SMOKE_B1/scene.json"
+}

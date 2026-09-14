@@ -1,0 +1,7 @@
+status: ADVISORY_ONLY
+requires_author_confirmation: true
+rules:
+  near_overlap: central absolute trend + spread summary
+  dual_endpoint: forest + aligned side information
+  probability_ci_reference: horizontal forest + reference line
+author_confirmation_required: true

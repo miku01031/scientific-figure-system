@@ -1,0 +1,287 @@
+{
+  "id": "T5",
+  "grammar": "OFFLINE_ONLINE_SWIMLANE",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "canvas": {
+    "width": 720,
+    "height": 380,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "LR"
+  },
+  "nodes": [
+    {
+      "id": "off",
+      "label": "OFFLINE TRAINING",
+      "type": "container",
+      "layout": {
+        "preferred_position": [
+          15,
+          15
+        ],
+        "size": [
+          690,
+          160
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "on",
+      "label": "ONLINE INFERENCE",
+      "type": "container",
+      "layout": {
+        "preferred_position": [
+          15,
+          205
+        ],
+        "size": [
+          690,
+          160
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "data",
+      "label": "Training data",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          50,
+          61
+        ],
+        "size": [
+          125,
+          95
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": "off"
+      },
+      "shape": "rect",
+      "primitive": "dataset",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "train",
+      "label": "Model training",
+      "type": "action",
+      "layout": {
+        "preferred_position": [
+          280,
+          80
+        ],
+        "size": [
+          140,
+          52
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": "off"
+      },
+      "shape": "rect"
+    },
+    {
+      "id": "trained",
+      "label": "Trained artifact",
+      "type": "artifact",
+      "layout": {
+        "preferred_position": [
+          545,
+          61
+        ],
+        "size": [
+          125,
+          95
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": "off"
+      },
+      "shape": "rect",
+      "primitive": "artifact",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "new",
+      "label": "New measurement",
+      "type": "data",
+      "layout": {
+        "preferred_position": [
+          50,
+          251
+        ],
+        "size": [
+          140,
+          95
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": "on"
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "infer",
+      "label": "Inference model",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          280,
+          251
+        ],
+        "size": [
+          140,
+          95
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": "on"
+      },
+      "shape": "rect",
+      "primitive": "graph",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "decision",
+      "label": "Decision",
+      "type": "decision",
+      "layout": {
+        "preferred_position": [
+          545,
+          272
+        ],
+        "size": [
+          125,
+          52
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": "on"
+      },
+      "shape": "diamond"
+    }
+  ],
+  "edges": [
+    {
+      "id": "o1",
+      "source": "data",
+      "target": "train",
+      "label": "train",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5024929178470253,
+      "label_normal_offset": 8.370331205364295,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "o2",
+      "source": "train",
+      "target": "trained",
+      "label": "freeze",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.4982407037185126,
+      "label_normal_offset": 8.37102937358589,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "o3",
+      "source": "new",
+      "target": "infer",
+      "label": "input",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5,
+      "label_normal_offset": 8.372703412073491,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "o4",
+      "source": "infer",
+      "target": "decision",
+      "label": "class",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": null,
+      "label_anchor": "middle",
+      "label_fraction": 0.5003519943680901,
+      "label_normal_offset": 8.372636431249976,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "o5",
+      "source": "trained",
+      "target": "infer",
+      "label": "deploy",
+      "direction": "forward",
+      "style": "dashed",
+      "semantic_role": "artifact_transfer",
+      "source_port": "bottom",
+      "target_port": "top",
+      "waypoints": [
+        [
+          607.5,
+          190
+        ],
+        [
+          480,
+          190
+        ],
+        [
+          480,
+          240
+        ],
+        [
+          350,
+          240
+        ]
+      ],
+      "label_position": [
+        550,
+        180
+      ],
+      "label_anchor": "middle",
+      "label_fraction": 0.2595744680851063,
+      "label_normal_offset": -7.611548556430449,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    }
+  ]
+}

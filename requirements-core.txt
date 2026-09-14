@@ -1,0 +1,5 @@
+numpy>=1.26
+matplotlib>=3.10,<3.12
+jsonschema>=4.20
+Pillow>=10
+PyYAML>=6

@@ -1,0 +1,52 @@
+{
+  "status": "EXPERIMENTAL CANDIDATE",
+  "font_family": [
+    "Times New Roman",
+    "SimSun"
+  ],
+  "font_pt": {
+    "axis": 9.5,
+    "tick": 8.5,
+    "legend": 8.0,
+    "panel": 9.5,
+    "annotation": 8
+  },
+  "font_recommended_range_pt": [
+    8,
+    11
+  ],
+  "font_exception": "Require authoritative publication profile; absolute pt, never width-linear scaling.",
+  "data_linewidth_pt": 1.25,
+  "data_linewidth_range_pt": [
+    1,
+    1.5
+  ],
+  "spine_pt": 0.65,
+  "reference_pt": 0.65,
+  "marker_pt": 4.5,
+  "overlap_marker_pt": 3.5,
+  "marker_range_pt": [
+    3,
+    6
+  ],
+  "marker_exception": "Overlap warning triggers small markers before rendering; never offset coordinates.",
+  "palette": [
+    "#3B84A3",
+    "#994274",
+    "#E7892F",
+    "#242023",
+    "#55865B",
+    "#7C65A6",
+    "#BD6A55",
+    "#657D8C"
+  ],
+  "reference_color": "#777777",
+  "event_color": "#B54040",
+  "legend_policy": "External below panels; deterministic columns based on measured labels and width; warn if no safe space.",
+  "profile_hooks": [
+    "target_width_mm",
+    "target_language",
+    "output_context",
+    "panel_mode"
+  ]
+}

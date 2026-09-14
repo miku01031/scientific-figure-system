@@ -1,0 +1,399 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "figure_id": {
+      "type": "string"
+    },
+    "panels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "properties": {
+          "panel_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "domain": {
+            "enum": [
+              "discrete",
+              "time",
+              "categorical"
+            ]
+          },
+          "x_axis": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "range": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "ticks": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1
+              },
+              "tick_labels": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "label",
+              "unit",
+              "range"
+            ],
+            "additionalProperties": false
+          },
+          "y_axis": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "range": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "ticks": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1
+              },
+              "tick_labels": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "label",
+              "unit",
+              "range"
+            ],
+            "additionalProperties": false
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "series_id": {
+                  "type": "string"
+                },
+                "meaning": {
+                  "type": "string"
+                },
+                "identity": {
+                  "type": "string"
+                },
+                "statistic": {
+                  "type": "string"
+                },
+                "x": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "y": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "connect": {
+                  "type": "boolean"
+                },
+                "lower": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "upper": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "interval_axis": {
+                  "enum": [
+                    "x",
+                    "y"
+                  ]
+                },
+                "interval_definition": {
+                  "type": "string"
+                },
+                "valid": {
+                  "type": "array",
+                  "items": {
+                    "type": "boolean"
+                  }
+                },
+                "display_label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "display_label_source": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "locator": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256",
+                    "locator"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "series_id",
+                "meaning",
+                "identity",
+                "statistic",
+                "x",
+                "y",
+                "connect"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "axis": {
+                  "enum": [
+                    "x",
+                    "y"
+                  ]
+                },
+                "value": {
+                  "type": "number"
+                },
+                "meaning": {
+                  "type": "string"
+                },
+                "role": {
+                  "enum": [
+                    "reference",
+                    "threshold",
+                    "fault",
+                    "validity",
+                    "alarm"
+                  ]
+                },
+                "series_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "axis",
+                "value",
+                "meaning",
+                "role"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "axis": {
+                  "enum": [
+                    "x",
+                    "y"
+                  ]
+                },
+                "value": {
+                  "type": "number"
+                },
+                "meaning": {
+                  "type": "string"
+                },
+                "role": {
+                  "enum": [
+                    "reference",
+                    "threshold",
+                    "fault",
+                    "validity",
+                    "alarm"
+                  ]
+                },
+                "series_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "axis",
+                "value",
+                "meaning",
+                "role"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "invalid_regions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "axis": {
+                  "enum": [
+                    "x",
+                    "y"
+                  ]
+                },
+                "start": {
+                  "type": "number"
+                },
+                "end": {
+                  "type": "number"
+                },
+                "meaning": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "axis",
+                "start",
+                "end",
+                "meaning"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "annotations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "series_id": {
+                  "type": "string"
+                },
+                "point_index": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "text",
+                "series_id",
+                "point_index"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "panel_label": {
+            "type": "string"
+          },
+          "visual_factors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "panel_id",
+          "title",
+          "domain",
+          "x_axis",
+          "y_axis",
+          "series"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "caption_information": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "figure_id",
+    "panels",
+    "caption_information",
+    "sources"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

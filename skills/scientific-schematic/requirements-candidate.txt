@@ -1,0 +1,2 @@
+# Derived compatibility shim. The repository root requirements-core.txt is canonical.
+-r ../../requirements-core.txt

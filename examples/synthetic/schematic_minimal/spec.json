@@ -1,0 +1,13 @@
+{
+  "id":"synthetic-minimal-schematic","notice":"DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE","grammar":"STAGED_METHOD_PIPELINE",
+  "canvas":{"width":580,"height":260,"width_mm":145},"layout":{"direction":"left-to-right"},
+  "nodes":[
+    {"id":"input","label":"Input data","type":"data","shape":"ellipse","layout":{"preferred_position":[20,100],"size":[110,50],"rank":0,"lane":null,"group":null}},
+    {"id":"process","label":"Process","type":"action","shape":"rect","layout":{"preferred_position":[220,100],"size":[120,50],"rank":0,"lane":null,"group":null}},
+    {"id":"output","label":"Result","type":"artifact","shape":"rect","layout":{"preferred_position":[430,100],"size":[110,50],"rank":0,"lane":null,"group":null}}
+  ],
+  "edges":[
+    {"id":"e0","source":"input","target":"process","label":"x(t)","direction":"forward","style":"solid","semantic_role":"data","source_port":"right","target_port":"left","waypoints":[],"label_position":null},
+    {"id":"e1","source":"process","target":"output","label":"result","direction":"forward","style":"solid","semantic_role":"result","source_port":"right","target_port":"left","waypoints":[],"label_position":null}
+  ]
+}

@@ -1,0 +1,4 @@
+# Compatibility shim for legacy installers; core dependencies only.
+# Install requirements-publication.txt for PDF/PNG export and
+# requirements-pdfqa.txt for PDF inspection/QA.
+-r requirements-core.txt

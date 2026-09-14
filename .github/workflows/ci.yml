@@ -1,0 +1,119 @@
+name: candidate-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  core:
+    name: core-${{ matrix.os }}-py${{ matrix.python }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        python: ['3.10', '3.11']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install core dependencies and test runner
+        run: python -m pip install -r requirements-core.txt pytest
+      - name: Figure core tests
+        run: python -m pytest tests -q
+        working-directory: skills/scientific-figure
+      - name: Schematic core tests
+        run: python -m pytest tests -q
+        working-directory: skills/scientific-schematic
+      - name: Repository and quickstart tests
+        run: python -m pytest tests/test_repo_hygiene.py tests/test_quickstarts.py -q
+
+  optimized:
+    name: optimized-core
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements-core.txt pytest
+      - run: python -O -m pytest tests -q
+        working-directory: skills/scientific-figure
+      - run: PYTHONOPTIMIZE=1 python -m pytest tests -q
+        working-directory: skills/scientific-schematic
+
+  schema-and-examples:
+    name: schema-and-examples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements-core.txt pytest
+      - run: python -c "import json,pathlib,jsonschema; [jsonschema.Draft202012Validator.check_schema(json.loads(p.read_text(encoding='utf-8'))) for p in pathlib.Path('.').rglob('*.schema.json')]"
+      - run: python -m pytest tests/test_repo_hygiene.py tests/test_quickstarts.py -q
+
+  publication-integration:
+    name: publication-integration-ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install native Cairo and publication dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2
+          python -m pip install -r requirements-publication.txt pytest
+      - name: Figure publication integration
+        run: python -m pytest tests -q -m cairo_integration
+        working-directory: skills/scientific-figure
+      - name: Schematic publication integration
+        run: |
+          python -c "from src.portability import configure_cairosvg; configure_cairosvg({}); print('native Cairo probe PASS')"
+          python -m pytest tests -q
+        working-directory: skills/scientific-schematic
+
+  pdf-qa-integration:
+    name: pdf-qa-integration-ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install publication and PDF-QA dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2
+          python -m pip install -r requirements-pdfqa.txt pytest
+      - name: Figure PDF-QA tests
+        run: python -m pytest tests -q
+        working-directory: skills/scientific-figure
+      - name: Schematic PDF-QA tests
+        run: python -m pytest tests -q
+        working-directory: skills/scientific-schematic
+
+  capability-aware:
+    name: capability-aware-core
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements-core.txt pytest
+      - run: python -m pytest tests -q
+        working-directory: skills/scientific-figure
+      - run: python -m pytest tests -q
+        working-directory: skills/scientific-schematic
+      - run: echo "Optional Cairo, PDF-QA, draw.io Desktop, and CJK-font integration are capability-gated."
+
+  drawio-e2e-optional:
+    if: ${{ false }}
+    runs-on: windows-latest
+    steps:
+      - run: 'echo "Optional manual integration: install draw.io Desktop explicitly before enabling this job."'

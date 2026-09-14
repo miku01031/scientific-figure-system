@@ -1,0 +1,2 @@
+# Edge label policy
+label_anchor: source/middle/target. Explicit label_fraction overrides anchor, bounded 0..1. Native relative x = 2*f-1. label_normal_offset maps to relative geometry y in final CSS pixels. label_tangent_offset maps to mxPoint offset along the segment containing arclength f. Source/target identity remains attached when nodes move. Offsets remain explicit; moving geometry may require a clearance review, never silently moving scientific nodes.

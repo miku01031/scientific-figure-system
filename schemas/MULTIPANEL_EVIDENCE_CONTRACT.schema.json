@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Multipanel evidence contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "figure_claim",
+    "panels"
+  ],
+  "properties": {
+    "figure_claim": {
+      "type": "string"
+    },
+    "panels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "panel_id",
+          "panel_role"
+        ],
+        "properties": {
+          "panel_id": {
+            "type": "string"
+          },
+          "panel_role": {
+            "enum": [
+              "PRIMARY_EVIDENCE",
+              "CONTROL",
+              "MECHANISM",
+              "ORTHOGONAL_VALIDATION",
+              "BOUNDARY_CASE",
+              "SUMMARY"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

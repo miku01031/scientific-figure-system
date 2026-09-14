@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+title: Scientific Figure System
+message: Please cite this software when using its renderer or schematic backend.
+type: software
+version: 0.1.0-rc1
+authors: []
+# CFF_FINALIZATION_BLOCKED_BY_AUTHOR_METADATA
+# Author identity and SPDX license are intentionally omitted pending author decision.

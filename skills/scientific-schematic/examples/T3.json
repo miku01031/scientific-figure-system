@@ -1,0 +1,164 @@
+{
+  "id": "T3",
+  "grammar": "STAGED_METHOD_PIPELINE",
+  "notice": "DEMONSTRATION_ONLY / NOT SCIENTIFIC EVIDENCE",
+  "canvas": {
+    "width": 720,
+    "height": 190,
+    "width_mm": 145
+  },
+  "layout": {
+    "direction": "LR"
+  },
+  "nodes": [
+    {
+      "id": "wave",
+      "label": "Measurement",
+      "type": "semantic_primitive",
+      "layout": {
+        "preferred_position": [
+          20,
+          47
+        ],
+        "size": [
+          125,
+          98
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "waveform",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "matrix",
+      "label": "Feature matrix",
+      "type": "semantic_primitive",
+      "layout": {
+        "preferred_position": [
+          200,
+          47
+        ],
+        "size": [
+          125,
+          98
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "matrix",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "model",
+      "label": "Graph model",
+      "type": "model",
+      "layout": {
+        "preferred_position": [
+          380,
+          47
+        ],
+        "size": [
+          125,
+          98
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "model",
+      "representation_class": "ICONIC_NON_DATA"
+    },
+    {
+      "id": "prob",
+      "label": "Class probability",
+      "type": "artifact",
+      "layout": {
+        "preferred_position": [
+          560,
+          47
+        ],
+        "size": [
+          140,
+          98
+        ],
+        "rank": 0,
+        "lane": null,
+        "group": null
+      },
+      "shape": "rect",
+      "primitive": "probability",
+      "representation_class": "ICONIC_NON_DATA"
+    }
+  ],
+  "edges": [
+    {
+      "id": "p1",
+      "source": "wave",
+      "target": "matrix",
+      "label": "encode",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": [
+        172,
+        82
+      ],
+      "label_anchor": "middle",
+      "label_fraction": 0.4909090909090906,
+      "label_normal_offset": 10.656167979002625,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "p2",
+      "source": "matrix",
+      "target": "model",
+      "label": "infer",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": [
+        352,
+        82
+      ],
+      "label_anchor": "middle",
+      "label_fraction": 0.4909090909090913,
+      "label_normal_offset": 10.656167979002625,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    },
+    {
+      "id": "p3",
+      "source": "model",
+      "target": "prob",
+      "label": "classify",
+      "direction": "forward",
+      "style": "solid",
+      "semantic_role": "information",
+      "source_port": "right",
+      "target_port": "left",
+      "waypoints": [],
+      "label_position": [
+        532,
+        82
+      ],
+      "label_anchor": "middle",
+      "label_fraction": 0.4909090909090909,
+      "label_normal_offset": 10.656167979002625,
+      "label_tangent_offset": 0,
+      "label_offset_units": "CSS px after backend coordinate normalization"
+    }
+  ]
+}
