@@ -1,13 +1,13 @@
 # README Preview Finalization Report
 
-Status: pending hosted CI after the documentation and asset commit.
+Status: PASS
 
 ## Assets
 
 - Hero preview: created at docs/readme_assets/hero_preview.png.
 - Figure gallery: created at docs/readme_assets/figure_gallery.png.
 - Schematic gallery: created at docs/readme_assets/schematic_gallery.png.
-- Total asset directory size: recorded during validation; all three PNGs are well below the requested 1 MB per asset and the directory remains below 3 MB.
+- Asset directory total: 286,010 bytes; each PNG is below 1 MB and the directory is below 3 MB.
 
 ## Scope shown
 
@@ -45,16 +45,18 @@ The galleries do not imply that the 49-entry chart registry is a production rend
 
 ## Validation
 
-- README relative-link check: pending final local run.
-- PNG open/read and dimension check: pending final local run.
-- Private-path scan: pending final local run.
-- Secret scan: pending final local run.
-- Repository hygiene: pending final local run.
-- Visual inspection: performed for all three assets; no clipped panel labels, malformed axes, clipped schematic edges, or obvious collisions observed.
-- Hosted CI: pending push.
+- README relative-link check: PASS.
+- PNG open/read and dimension check: PASS.
+- Private-path scan: PASS (0 hits).
+- Secret scan: PASS (0 hits).
+- Repository hygiene: PASS after clearing generated caches.
+- Local repository tests: PASS — 6 repository quickstart/hygiene/import/native-only tests; scientific-figure package 29 passed, 22 skipped; scientific-schematic package 38 passed, 4 skipped.
+- Visual inspection: PASS for all three assets; no clipped panel labels, malformed axes, clipped schematic edges, or obvious collisions observed.
+- Hosted CI: PASS — https://github.com/miku01031/scientific-figure-system/actions/runs/34834356343
+- Hosted jobs: Windows, Ubuntu, and macOS core matrices; optimized core; schema/examples; Ubuntu publication integration; Ubuntu PDF-QA integration. The draw.io Desktop E2E job remained optional/skipped as designed.
 
 ## Repository state
 
-- Repository visibility must remain PRIVATE.
-- Final commit SHA: pending.
-- Hosted CI run URL: pending.
+- Repository visibility: PRIVATE.
+- Preview-assets commit tested by hosted CI: 44c3b8c799e2face10055c802e024f61d554cce7.
+- A report-only follow-up commit will record this closeout; no product or scientific code changes are included.
