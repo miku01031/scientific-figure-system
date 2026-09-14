@@ -4,146 +4,283 @@
 
 A small, evidence-preserving toolkit for creating publication-oriented scientific figures and editable technical schematics.
 
-This private release candidate is for graduate students, researchers, and engineers who can use Python and Matplotlib but want stronger checks around scientific meaning, provenance, and vector output.
+This private release candidate is for researchers who already have project code and results and want Codex to help rebuild figures without changing scientific values. It is not a universal plotting service and it does not replace scientific judgment.
 
-## What it helps with
+All preview images in this repository use synthetic data or synthetic diagram specifications owned by this project. They are demonstrations, not scientific evidence.
 
-The project has two separate products:
+## What this project does
 
-- **scientific-figure** creates data figures from an explicit scientific specification. Its current production-tested archetypes are `DISCRETE_COMPARISON`, `DENSE_TIMESERIES`, and `ERRORBAR_POINTWHISKER`.
-- **scientific-schematic** creates semantic technical diagrams from an explicit specification. Its canonical editable output is native `.drawio` XML. It currently registers nine diagram grammars.
+The repository contains two separate Codex Skills:
 
-The central idea is simple: **data first, meaning first, style second**. The system checks that plotting and vector polishing do not silently change protected scientific values such as x/y arrays, intervals, thresholds, or event positions. When it cannot safely interpret an input, it stops and explains the problem instead of guessing.
+- **scientific-figure** reads a scientific figure specification and produces vector data figures. Its current production-tested renderers are:
+  - Dense time series (DENSE_TIMESERIES)
+  - Discrete comparison (DISCRETE_COMPARISON)
+  - Point/whisker intervals (ERRORBAR_POINTWHISKER)
+- **scientific-schematic** reads an explicit semantic diagram specification and produces an editable native .drawio file. It registers nine semantic grammars for control diagrams, workflows, architectures, and related technical diagrams.
 
-All preview images below are generated from repository-owned synthetic benchmarks. They are visual demonstrations, not scientific evidence.
+The simple rule is **data first, meaning first, style second**. The tools check that plotting and vector processing do not silently change protected values such as x/y arrays, interval endpoints, thresholds, or event positions. When the input is ambiguous or unsupported, the tools stop and explain the problem instead of guessing.
 
-## Scientific chart atlas
+<a href="docs/readme_assets/chart_archetype_atlas.png"><img src="docs/readme_assets/chart_archetype_atlas.png" alt="Scientific chart archetype atlas" width="100%"></a>
 
-<a href="docs/readme_assets/chart_archetype_atlas.png"><img src="docs/readme_assets/chart_archetype_atlas.png" alt="Scientific chart archetype atlas overview" width="100%"></a>
+The chart atlas is a reference for choosing a representation. It covers 49 explored archetypes, but it is not a claim that 49 production renderers exist. The three production-tested renderers are listed above. Click the image for the full-resolution atlas; family-level views are available in the asset folder.
 
-This is a reference atlas of chart archetypes explored during development. Click the image to open the high-resolution overview. The atlas is planning material; it does not mean that all 49 explored archetypes have production renderers. The current production-tested renderers are the three types listed below.
+<a href="docs/readme_assets/schematic_quality_overview.png"><img src="docs/readme_assets/schematic_quality_overview.png" alt="Synthetic scientific schematic examples" width="100%"></a>
 
-For a more readable family-level view, the same generated atlas is split into three lossless overview sheets:
+This overview shows synthetic control, FDI/FTC, observer, and method diagrams generated during development. The editable source is native .drawio XML. It does not expand the nine-grammar support boundary.
 
-<a href="docs/readme_assets/chart_archetype_atlas_families_1.png"><img src="docs/readme_assets/chart_archetype_atlas_families_1.png" alt="Chart atlas families A to C" width="100%"></a>
+## Quick Start — Recommended
 
-<a href="docs/readme_assets/chart_archetype_atlas_families_2.png"><img src="docs/readme_assets/chart_archetype_atlas_families_2.png" alt="Chart atlas families D to F" width="100%"></a>
+The easiest workflow is: clone the repository, install the core dependencies, copy the two Skills into your Codex Skill directory, then open **your own research project** in Codex. You do not need to copy your research data into this repository.
 
-<a href="docs/readme_assets/chart_archetype_atlas_families_3.png"><img src="docs/readme_assets/chart_archetype_atlas_families_3.png" alt="Chart atlas families G to I" width="100%"></a>
+### 1. Download the repository
 
-## Current production-supported figure types
-
-The public candidate production scope contains three tested archetypes:
-
-- `DISCRETE_COMPARISON`
-- `DENSE_TIMESERIES`
-- `ERRORBAR_POINTWHISKER`
-
-The 49-entry chart registry is reference and planning material. It is not a claim that all 49 chart types are production renderers.
-
-The public candidate bundles the project-owned `our_moderate_vivid` palette. Other palettes may be supplied by a user with their own provenance and suitability review; they are not silently treated as bundled defaults.
-
-## Technical schematic examples
-
-<a href="docs/readme_assets/schematic_quality_overview.png"><img src="docs/readme_assets/schematic_quality_overview.png" alt="Synthetic technical schematic quality overview" width="100%"></a>
-
-These representative control, FDI, FTC, observer, and method diagrams come from our synthetic schematic quality suite. They are not copied from papers. The canonical editable source is native `.drawio` XML; the image is a display overview and does not expand the nine-grammar support boundary. draw.io Desktop application export is optional; it was locally tested with draw.io Desktop 31.4.5, while hosted CI does not run Desktop E2E.
-
-## Flowchart grammar examples
-
-<a href="docs/readme_assets/flowchart_grammar_overview.png"><img src="docs/readme_assets/flowchart_grammar_overview.png" alt="Synthetic flowchart grammar benchmark overview" width="100%"></a>
-
-The benchmark above shows the project-owned semantic and layout grammars. For clearer detail, the same sheet is available as two lossless crops:
-
-<a href="docs/readme_assets/flowchart_grammar_overview_1.png"><img src="docs/readme_assets/flowchart_grammar_overview_1.png" alt="Flowchart grammar benchmark stages B1 to B4" width="100%"></a>
-
-<a href="docs/readme_assets/flowchart_grammar_overview_2.png"><img src="docs/readme_assets/flowchart_grammar_overview_2.png" alt="Flowchart grammar benchmark stages B5 to B8" width="100%"></a>
-
-These are semantic/layout grammars, not figures copied from reference papers. The semantic specification supplies nodes, relationships, and layout coordinates; this is not AI layout of an arbitrary drawing.
-
-## What it is not
-
-This is not a paper-production service, a universal chart library, an automatic layout system for every diagram, or a guarantee of journal acceptance. The examples use synthetic data and are demonstrations only. Machine QA does not replace a scientist's review of the data, caption, interpretation, or final-size appearance.
-
-## Quick start: first figure
-
-After cloning the repository, run these commands from its root:
-
-```powershell
+~~~bash
 git clone https://github.com/miku01031/scientific-figure-system.git
 cd scientific-figure-system
+~~~
+
+While this repository is private, cloning requires permission to access it. Remove or update this note before a public release.
+
+### 2. Install the core dependencies
+
+Python 3.10 or 3.11 is recommended.
+
+Windows PowerShell:
+
+~~~powershell
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements-core.txt
-.venv\Scripts\python examples/synthetic/figure_minimal/run_example.py
-```
+~~~
 
-The deterministic example writes an SVG under `examples/synthetic/figure_minimal/output/`. Without the optional CairoSVG layer it is named `figure.DIAGNOSTIC.svg`; with publication export available it is named `figure.svg`. It uses synthetic demonstration data, not research evidence. Core SVG generation does not require CairoSVG, PyMuPDF, or draw.io Desktop.
+macOS/Linux:
 
-## Quick start: first schematic
+~~~bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-core.txt
+~~~
 
-The same core environment can generate an editable native diagram:
+Core dependencies are enough for SVG scientific figures and native editable .drawio schematics. CairoSVG, PyMuPDF, and draw.io Desktop are not required for this first step.
 
-```powershell
-.venv\Scripts\python examples/synthetic/schematic_minimal/run_example.py
-```
+### 3. Install the Codex Skills
 
-This writes `examples/synthetic/schematic_minimal/output/diagram.drawio`. No draw.io installation is required. If draw.io Desktop is available, it can be used later for application export; that is an optional capability, not a prerequisite for native `.drawio` generation.
+The repository contains skills/scientific-figure and skills/scientific-schematic. Copy them to the local Codex Skill directory, then restart Codex so it discovers them.
 
-## Optional publication capabilities
+Windows PowerShell:
 
-SVG output and native `.drawio` generation are the core capabilities. PDF/PNG publication export is a separate layer:
+~~~powershell
+$skillRoot = "$env:USERPROFILE\.codex\skills"
+New-Item -ItemType Directory -Force $skillRoot | Out-Null
+Copy-Item ".\skills\scientific-figure" "$skillRoot\scientific-figure" -Recurse -Force
+Copy-Item ".\skills\scientific-schematic" "$skillRoot\scientific-schematic" -Recurse -Force
+~~~
 
-```powershell
+macOS/Linux:
+
+~~~bash
+mkdir -p ~/.codex/skills
+cp -R skills/scientific-figure ~/.codex/skills/
+cp -R skills/scientific-schematic ~/.codex/skills/
+~~~
+
+Restart Codex after copying so the two Skills become discoverable.
+
+### 4. Open your own project
+
+Open the folder that contains your existing Python/MATLAB code, CSV/MAT/JSON/NPY files, and result folders in Codex. The scientific data does not need to be moved into this repository.
+
+### 5. Ask Codex in one sentence
+
+Copy this prompt into the project you want to work on:
+
+> Use the scientific-figure Skill to inspect this project, find the existing result data and plotting code, and generate publication-oriented scientific figures. Preserve all scientific values and do not invent or modify data. Use the supported renderer and default visual system when possible. Save the reproducible plotting code/spec together with the SVG output.
+
+If the project structure is clear, an even shorter prompt is:
+
+> Use scientific-figure to improve the figures in this project.
+
+Codex should ask before drawing when the scientific meaning, source provenance, interval definition, or supported chart type is unclear.
+
+## Advanced Usage
+
+The quick start above is enough for most first runs. The sections below cover existing-code migration, batch work, representation choices, schematic grammars, palettes, and review.
+
+## Three common ways to use it
+
+### Improve existing figures
+
+If you already have MATLAB or Python plotting code:
+
+> Use scientific-figure to inspect the existing plotting code in this project. Keep all underlying scientific values unchanged, but rebuild the figure using the repository's publication-oriented visual system. Do not replace any scientific calculation.
+
+This is the recommended migration path for an existing result figure. The Skill changes figure construction and vector output, not scientific computation.
+
+### Generate new figures from project results
+
+> Inspect this project and find the result data used for the paper figures. For each figure, identify whether it matches a supported scientific-figure renderer. Generate the supported figures, preserve the source data and intervals, save reproducible code/spec files, and clearly report anything that is unsupported or needs my decision.
+
+For a batch request:
+
+> Inspect all plotting scripts and result figures in this project. Use scientific-figure for figures that match its supported production renderers. For unsupported figure types, do not call them validated scientific-figure output; explain the limitation and preserve the scientific results. Do not modify the calculations.
+
+### Generate an editable scientific schematic
+
+> Use scientific-schematic to inspect this project and create an editable technical diagram that explains the main method or system architecture. Do not invent scientific modules that are not supported by the project. Output an editable .drawio file.
+
+For a diagram derived from code:
+
+> Inspect the source code and documentation in this project and build a scientific-schematic diagram that summarizes the actual processing, control, or diagnosis pipeline. Before drawing, list the inferred modules and connections. If any relationship is uncertain, ask me instead of inventing it.
+
+The schematic Skill requires semantic relationships and layout coordinates to be supplied by the specification. A grammar organizes a diagram; it is not automatic scientific understanding or an unrestricted layout engine.
+
+## What can currently be generated
+
+### Production-tested data figures
+
+| User-friendly type | Code name | Typical use |
+| --- | --- | --- |
+| Dense time series | DENSE_TIMESERIES | Connected time-domain signals with at least 32 samples |
+| Discrete comparison | DISCRETE_COMPARISON | Explicit categorical/discrete comparisons with up to 8 uniquely encoded series |
+| Point/whisker interval | ERRORBAR_POINTWHISKER | Estimates with explicit lower and upper endpoints |
+
+The renderer scope is fail-closed. Heatmaps, confusion matrices, arbitrary flowcharts, networks, 3D, radar, Sankey, and other unsupported types are not silently converted into one of these recipes. The 49-entry chart registry is reference and planning material; use it to discuss a possible representation, not to claim a production renderer.
+
+### Schematic grammars
+
+The current registry contains these nine semantic grammars:
+
+- CONTROL_BLOCK_DIAGRAM — control loops and named signal paths
+- ALGORITHM_DECISION_LOOP — iterative algorithms with a stopping decision
+- STAGED_METHOD_PIPELINE — sequential method stages and intermediate objects
+- BRANCH_MERGE_WORKFLOW — parallel branches that later merge
+- OFFLINE_ONLINE_SWIMLANE — training/offline work and online deployment
+- HIERARCHICAL_ARCHITECTURE — layered system interfaces
+- DUAL_STREAM_FUSION — complementary data and model streams
+- SEMANTIC_METHOD_OVERVIEW — method or model transformations
+- EXPERIMENTAL_DATA_LIFECYCLE — acquisition, cleaning, analysis, and validation
+
+The grammar does not invent topology. Codex or the user must provide the actual modules, connections, labels, and layout coordinates.
+
+## Colors and visual style
+
+The default bundled categorical palette is our_moderate_vivid. Most users should let the Skill choose colors automatically from the figure type and number of series.
+
+You can use natural-language requests such as:
+
+- “Use a restrained color scheme.”
+- “Highlight Method A and keep the other methods neutral.”
+- “Use color together with marker or line-style redundancy.”
+
+The renderer still checks encoding uniqueness and accessibility; it will stop when a palette cannot distinguish the requested number of scientific identities. The public candidate does not bundle the internally evaluated Tol or Okabe–Ito numeric tables.
+
+Some colors have semantic roles instead of representing a series: fault_event, threshold, reference, neutral, baseline, missing, and text. You normally do not need to choose their hex values yourself.
+
+For difficult representations, the advisory registry may suggest:
+
+- near-overlapping curves → a central absolute trend plus a spread summary;
+- two endpoints with intervals and a denominator/count → a forest-style display with aligned side information;
+- probability/interval results against a reference → a horizontal interval display with a reference line.
+
+These are suggestions only. They never rewrite a real paper's scientific representation without author confirmation.
+
+## Output formats
+
+Core output:
+
+- Data figures: SVG, with reproducible code/spec and QA records.
+- Schematics: native editable .drawio XML.
+
+SVG can be inspected or refined in Illustrator, Inkscape, or another vector editor. Do not change scientific values during manual polishing. For schematics, open the .drawio file in draw.io Desktop to move native nodes, edit labels, or adjust spacing.
+
+Optional publication export:
+
+~~~powershell
 .venv\Scripts\python -m pip install -r requirements-publication.txt
-```
+~~~
 
-This layer also needs a platform-native Cairo library. Installing the Python package `CairoSVG` alone does not guarantee that native Cairo is available. See [installation notes](docs/INSTALLATION.md) and the [runtime distribution policy](docs/RUNTIME_DISTRIBUTION_POLICY.md).
+or on macOS/Linux:
 
-PDF inspection and PDF-QA are another optional layer:
+~~~bash
+.venv/bin/python -m pip install -r requirements-publication.txt
+~~~
 
-```powershell
+PDF/PNG export also requires a platform-native Cairo library. Installing the Python CairoSVG package alone does not prove that native Cairo is available. PDF inspection and PDF-QA are a separate optional layer:
+
+~~~powershell
 .venv\Scripts\python -m pip install -r requirements-pdfqa.txt
-```
+~~~
 
-PyMuPDF is used only for PDF inspection; it is not a core dependency. Third-party license information is in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+See [installation notes](docs/INSTALLATION.md), [runtime distribution policy](docs/RUNTIME_DISTRIBUTION_POLICY.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
+
+## What you should expect Codex to return
+
+A good assisted run normally returns:
+
+1. the generated SVG or .drawio;
+2. reproducible plotting code or a semantic specification;
+3. a QA/capability result and any warnings;
+4. PDF/PNG only when the optional publication layer is available.
+
+Machine QA is a safety check, not a journal-acceptance decision. Inspect the figure at the intended physical size and confirm the caption, interpretation, and final scientific message yourself.
 
 ## When the system stops
 
-The tools fail closed when they cannot safely preserve meaning. Typical examples include:
+A stop is intentional. Examples include:
 
-- too many series for the available distinguishable encodings;
+- too many series for uniquely distinguishable encodings;
 - an invalid or inverted interval;
 - missing or mismatched source provenance;
 - an unknown archetype or grammar;
-- a missing required glyph or a forbidden raster/vector condition.
+- missing CJK glyphs or forbidden raster/vector content.
 
-A stop is a request to fix or review the input. It is preferable to a plausible-looking figure with an unverified scientific meaning.
+The system prefers to explain the problem rather than produce a plausible-looking figure with an unverified meaning.
 
-## Editing and review workflow
+## A short revision vocabulary
 
-1. Prepare the scientific data and semantic specification.
-2. Generate the figure or schematic.
-3. Read the machine QA and capability result.
-4. Inspect the artwork at its intended physical size and in context.
-5. Make any required human edits and document them.
-6. Use the reviewed result in the manuscript.
+After a first pass, you can ask:
 
-The schematic `.drawio` file is the editable source. Data figures are primarily published as SVG and can be refined in Illustrator, Inkscape, or another vector editor. SVG editability and grouping can vary between applications; the project does not promise identical editing behavior in every editor.
+- “The legend covers the curve. Keep the data unchanged and re-layout the figure.”
+- “Emphasize Method A and keep the other methods as neutral context.”
+- “Do not change the curves; adjust only typography, spacing, and the legend.”
+- “Make a version that is suitable for a single-column paper.”
+- “Generate an editable .drawio version.”
+
+## Manual use without Codex
+
+Codex is the recommended workflow, but the repository also contains deterministic synthetic launchers:
+
+~~~powershell
+.venv\Scripts\python examples/synthetic/figure_minimal/run_example.py
+.venv\Scripts\python examples/synthetic/schematic_minimal/run_example.py
+~~~
+
+The first writes an SVG under examples/synthetic/figure_minimal/output/ (or an explicitly named diagnostic SVG when optional publication export is unavailable). The second writes examples/synthetic/schematic_minimal/output/diagram.drawio. These examples use synthetic data and are not a substitute for preparing a provenance-backed specification from your own project.
+
+For detailed prompts, troubleshooting, and project workflow, read [the full Codex usage guide](docs/CODEX_USAGE.md). Chinese users can read [the Chinese guide](docs/CODEX_USAGE_zh.md).
+
+## Recommended workflow
+
+1. Prepare or locate the scientific data and existing plotting code.
+2. Ask Codex to inspect the project and state what it found.
+3. Generate the figure or schematic.
+4. Read the QA and capability result.
+5. Inspect the output at its intended physical size.
+6. Make and record any required human edits.
+7. Use the reviewed result in the manuscript.
 
 ## Tested environments
 
-Hosted core CI has passed on Windows, Ubuntu, and macOS with Python 3.10 and 3.11. The current Matplotlib range is defined by [requirements-core.txt](requirements-core.txt) as `>=3.10,<3.11`; Python version and Matplotlib version are separate constraints. Ubuntu hosted integration also tests native Cairo publication export and the optional PyMuPDF PDF-QA layer.
+Hosted core CI has passed on Windows, Ubuntu, and macOS with Python 3.10 and 3.11. The Python package range is defined in requirements-core.txt; Python and Matplotlib versions are separate constraints. Ubuntu integration also tests native Cairo publication export and the optional PyMuPDF PDF-QA layer.
+
+Native .drawio XML generation is a core capability and does not require draw.io Desktop. Desktop export is optional and was locally tested with draw.io Desktop 31.4.5; hosted CI does not run Desktop E2E.
 
 ## Repository map
 
-- `skills/` — the two product implementations and their local tests;
-- `registries/` — reference registries and advisory records;
-- `schemas/` — JSON schemas for contracts;
-- `examples/synthetic/` — small deterministic demonstrations;
-- `tests/` — repository, quickstart, and hygiene checks;
-- `docs/` — installation, review, runtime, and dependency notes.
-
-Start with [CONTRIBUTING.md](CONTRIBUTING.md) before changing code or adding examples. See [SECURITY.md](SECURITY.md) for the current security-reporting status.
+- skills/ — the two Codex Skills;
+- registries/ — palette, chart-reference, representation-advisor, and grammar registries;
+- schemas/ — small contracts used by the tools;
+- examples/synthetic/ — deterministic demonstrations;
+- tests/ — core and hygiene checks;
+- docs/ — installation, review, runtime, and detailed usage notes.
 
 ## Author
 
@@ -151,8 +288,10 @@ Li Yingxi ([@miku01031](https://github.com/miku01031))
 
 ## Citation
 
-If you use the renderer or schematic backend, please cite this software using [CITATION.cff](CITATION.cff).
+If you use the renderer or schematic backend, cite this software using [CITATION.cff](CITATION.cff).
 
 ## License status
 
-The repository keeps the license decision explicit and pending author confirmation. See [LICENSE_DECISION_REQUIRED.md](LICENSE_DECISION_REQUIRED.md).
+The license decision remains explicitly pending author confirmation. See [LICENSE_DECISION_REQUIRED.md](LICENSE_DECISION_REQUIRED.md).
+
+For detailed usage and troubleshooting, see [docs/CODEX_USAGE.md](docs/CODEX_USAGE.md).
